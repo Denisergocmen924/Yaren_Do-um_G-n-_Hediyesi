@@ -331,7 +331,7 @@ footer::after{content:'🏐';position:absolute;top:-8px;right:clamp(20px,4vw,60p
     </div>
     <div id="yarenVerify">
       <div class="verify-box">
-        <p class="verify-q">Kod Nedir? 🔐</p>
+        <p class="verify-q">Kod ne? 🔒</p>
         <input type="text" class="verify-input" id="verifyInput" placeholder="Cevabını yaz..." maxlength="10" onkeydown="if(event.key==='Enter')checkYaren()">
         <button class="verify-btn" onclick="checkYaren()">Giriş Yap ✨</button>
         <p class="verify-err" id="verifyErr">Hmm, yanlış galiba? 🤔</p>
@@ -379,7 +379,7 @@ footer::after{content:'🏐';position:absolute;top:-8px;right:clamp(20px,4vw,60p
   <div class="hero-deco hd-3">✨</div>
   <div class="hero-deco hd-4">🌸</div>
   <div class="hero-content">
-    <p class="hero-eyebrow">Doğum gününü her yıl kutlarsın ama 17 yaşını sadece bir kez yaşarsın, bunu unutma</p>
+    <p class="hero-eyebrow">Doğum gününü her sene kutlarsın ama 17 yaşını sadece bir kez yaşarsın, bunu unutma</p>
     <h1 class="hero-name">Ya<em>ren</em></h1>
     <p class="hero-sub">Doğum günün kutlu olsun, Yavrum</p>
     <div class="hero-divider"></div>
@@ -498,6 +498,20 @@ footer::after{content:'🏐';position:absolute;top:-8px;right:clamp(20px,4vw,60p
           </div>
           <div id="aniPhotoPreview" style="margin-top:8px;"></div>
         </div>
+        <div class="up-form-group">
+          <label class="up-label">Video (isteğe bağlı, max 3)</label>
+          <div class="up-zone" style="padding:20px;">
+            <input type="file" accept="video/*" multiple onchange="uploadAniVideo(this)">
+            <div class="up-zone-icon" style="font-size:1.5rem;">🎬</div>
+            <p class="up-zone-text" style="font-size:.88rem;">Video ekle (max 3)</p>
+            <p class="up-zone-sub">MP4, MOV, WEBM</p>
+          </div>
+          <div class="up-progress" id="upAniVideoProgress">
+            <div class="up-prog-bg"><div class="up-prog-fill" id="upAniVideoBar"></div></div>
+            <p class="up-prog-txt" id="upAniVideoTxt">Yükleniyor...</p>
+          </div>
+          <div id="aniVideoPreview" style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap;"></div>
+        </div>
         <button class="lw-submit" style="background:var(--bordo);color:#fff;border-radius:10px;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;padding:13px;" onclick="uploadAni()">Anı Gönder ✨</button>
         <p class="limit-info" id="aniLimitInfo"></p>
         <div class="pending-note" style="margin-top:12px;">⏳ Anınız admin onayından sonra görünür.</div>
@@ -594,7 +608,8 @@ window.SITE = {
   currentRole: null,
   entered: false,
   customMusicUrl: null,
-  aniPhotoUrl: null
+  aniPhotoUrl: null,
+  aniVideoUrl: null
 };
 const CLOUD = 'daa0ncchc', PRESET = 'yaren_upload';
 const LIMITS = { photo:80, video:15, audio:10, ani:15 };
@@ -833,7 +848,7 @@ async function loadMemories() {
       </div>` : '';
       const content = `<div class="tl-content" onclick="toggleTl(this)">
         <div class="tl-header"><div class="tl-header-left"><span class="tl-date">${esc(m.date)}</span><h3 class="tl-title">${esc(m.title)}</h3></div><span class="tl-chevron">▼</span></div>
-        <div class="tl-body"><p class="tl-text">${esc(m.text||'')}</p>${m.img ? `<img src="${cloudImg(m.img)}" class="tl-img" alt="" loading="lazy" onclick="openLightbox('${m.img}','${esc(m.title)}',${window.SITE&&window.SITE.currentRole==='yaren'},'${m.img}','${esc(m.title)}')">` : ''}${dlBtns}</div>
+        <div class="tl-body"><p class="tl-text">${esc(m.text||'')}</p>${m.img ? `<img src="${cloudImg(m.img)}" class="tl-img" alt="" loading="lazy" onclick="openLightbox('${m.img}','${esc(m.title)}',${window.SITE&&window.SITE.currentRole==='yaren'},'${m.img}','${esc(m.title)}')">` : ''}${m.videos&&m.videos.length ? m.videos.map(v=>`<video src="${v}" controls playsinline style="width:100%;border-radius:8px;margin-top:8px;max-height:200px;"></video>`).join('') : ''}${dlBtns}</div>
       </div>`;
       return `<div class="timeline-item fade-in-up visible">
         <div class="${isEven?'tl-left':'tl-empty'}">${isEven?content:''}</div>
@@ -948,6 +963,27 @@ window.uploadAniPhoto = async function(inp) {
   } catch(e) { showToast('Fotoğraf yüklenemedi: ' + e.message); }
 };
 
+window.uploadAniVideo = async function(inp) {
+  const files = Array.from(inp.files).slice(0, 3);
+  if (!files.length) return;
+  if (!window.SITE.aniVideoUrl) window.SITE.aniVideoUrl = [];
+  if (window.SITE.aniVideoUrl.length >= 3) { showToast('En fazla 3 video ekleyebilirsiniz'); return; }
+  const remaining = 3 - window.SITE.aniVideoUrl.length;
+  const toUpload = files.slice(0, remaining);
+  for (let i = 0; i < toUpload.length; i++) {
+    try {
+      showToast(`Video ${i+1}/${toUpload.length} yükleniyor...`);
+      document.getElementById('upAniVideoTxt').textContent = `${i+1}/${toUpload.length} yükleniyor...`;
+      const r = await toCloud(toUpload[i], 'upAniVideoBar', 'upAniVideoTxt', 'upAniVideoProgress');
+      window.SITE.aniVideoUrl.push(r.secure_url);
+      const prev = document.getElementById('aniVideoPreview');
+      prev.innerHTML += `<video src="${r.secure_url}" style="max-height:80px;border-radius:8px;" controls></video>`;
+      showToast(`✓ Video ${i+1} hazır`);
+    } catch(e) { showToast('Video yüklenemedi: ' + e.message); }
+  }
+  inp.value = '';
+};
+
 window.uploadAni = async function() {
   const name = window.SITE.currentUser || '';
   const { ok, limit } = await checkLimit('memories', name, 'ani');
@@ -959,13 +995,15 @@ window.uploadAni = async function() {
   if (!title || !dateVal) { showToast('Başlık ve tarih zorunlu'); return; }
   try {
     const { collection, addDoc } = fbMods;
-    await addDoc(collection(db,'memories'), {title, date:dateDisplay||dateVal, text, img:window.SITE.aniPhotoUrl||null, uploadedBy:name, approved:false, createdAt:new Date(dateVal)});
+    await addDoc(collection(db,'memories'), {title, date:dateDisplay||dateVal, text, img:window.SITE.aniPhotoUrl||null, videos:window.SITE.aniVideoUrl||[], uploadedBy:name, approved:false, createdAt:new Date(dateVal)});
     document.getElementById('upAniTitle').value = '';
     document.getElementById('upAniDate').value = '';
     document.getElementById('upAniDateDisplay').value = '';
     document.getElementById('upAniText').value = '';
     document.getElementById('aniPhotoPreview').innerHTML = '';
+    document.getElementById('aniVideoPreview').innerHTML = '';
     window.SITE.aniPhotoUrl = null;
+    window.SITE.aniVideoUrl = [];
     showToast('✓ Anı gönderildi');
     updateLimitInfo('memories', name, 'ani', 'aniLimitInfo');
   } catch(e) { showToast('Hata: ' + e.message); }
