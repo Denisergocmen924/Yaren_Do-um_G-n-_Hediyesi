@@ -331,7 +331,7 @@ footer::after{content:'🏐';position:absolute;top:-8px;right:clamp(20px,4vw,60p
     </div>
     <div id="yarenVerify">
       <div class="verify-box">
-        <p class="verify-q">İlkokul şuben neydi? 🏫</p>
+        <p class="verify-q">Kod Nedir? 🔐</p>
         <input type="text" class="verify-input" id="verifyInput" placeholder="Cevabını yaz..." maxlength="10" onkeydown="if(event.key==='Enter')checkYaren()">
         <button class="verify-btn" onclick="checkYaren()">Giriş Yap ✨</button>
         <p class="verify-err" id="verifyErr">Hmm, yanlış galiba? 🤔</p>
@@ -379,9 +379,9 @@ footer::after{content:'🏐';position:absolute;top:-8px;right:clamp(20px,4vw,60p
   <div class="hero-deco hd-3">✨</div>
   <div class="hero-deco hd-4">🌸</div>
   <div class="hero-content">
-    <p class="hero-eyebrow">Seninle Her An Özel</p>
+    <p class="hero-eyebrow">Doğum gününü her yıl kutlarsın ama 17 yaşını sadece bir kez yaşarsın, bunu unutma</p>
     <h1 class="hero-name">Ya<em>ren</em></h1>
-    <p class="hero-sub">Doğum günün kutlu olsun, canım</p>
+    <p class="hero-sub">Doğum günün kutlu olsun, Yavrum</p>
     <div class="hero-divider"></div>
     <div class="countdown-wrapper"><div id="birthdayCheck"></div></div>
   </div>
@@ -1046,7 +1046,7 @@ function backToMain() {
 }
 function checkYaren() {
   const val = document.getElementById('verifyInput').value.trim();
-  if (/^(4[\/\-]?a|a)$/i.test(val.replace(/\s/g,''))) {
+  if (val.trim() === '03312009') {
     enterSite('yaren', 'Yaren');
   } else {
     document.getElementById('verifyErr').classList.add('show');
