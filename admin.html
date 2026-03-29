@@ -456,22 +456,6 @@ button{font-family:'Montserrat',sans-serif;}
         </div>
       </div>
       <div class="admin-card">
-        <h3>🎂 31 Mart Özel Müziği <span class="badge">Sayaç sıfırlanınca çalar</span></h3>
-        <p style="font-size:.76rem;color:var(--text-light);margin-bottom:16px;line-height:1.7;">Sayaç 31 Mart 00:00'da sıfırlandığında çalacak özel şarkı. <strong>Yaren girişindeki müzikten tamamen ayrıdır.</strong></p>
-        <div class="upload-zone" style="padding:24px;">
-          <input type="file" accept="audio/*" onchange="uploadBirthdaySpecialMusic(this)">
-          <div class="uz-icon">🎂</div>
-          <p class="uz-text">31 Mart şarkısını seç</p>
-          <p class="uz-sub">MP3, WAV, M4A</p>
-        </div>
-        <div class="progress-wrap" id="specialMusicProgress"><div class="prog-bg"><div class="prog-fill" id="specialMusicBar"></div></div><p class="prog-txt" id="specialMusicTxt">Yükleniyor...</p></div>
-        <div id="specialMusicInfo" style="display:none;margin-top:12px;padding:12px;background:rgba(107,30,46,.06);border-radius:10px;border:1px solid rgba(107,30,46,.12);">
-          <p style="font-size:.73rem;color:var(--text-mid);margin-bottom:8px;">🎂 Mevcut: <span id="specialMusicName" style="font-weight:500;"></span></p>
-          <audio id="specialMusicPreview" controls style="width:100%;height:32px;"></audio>
-          <button onclick="removeBirthdaySpecialMusic()" class="btn-danger" style="margin-top:8px;font-size:.63rem;padding:7px 14px;">Şarkıyı Kaldır</button>
-        </div>
-      </div>
-      <div class="admin-card">
         <h3>Şifre Değiştir</h3>
         <div class="form-group"><label class="form-label">Yeni Şifre (min 6 karakter)</label><input type="password" class="form-input" id="newPass" placeholder="Yeni şifre..."></div>
         <div class="form-group"><label class="form-label">Şifre Tekrar</label><input type="password" class="form-input" id="newPass2" placeholder="Şifreyi tekrar gir..."></div>
@@ -546,8 +530,7 @@ window.CT = {
   patternType:'stripes',
   collageCols:3, collageImages:[],
   slideshowImages:[], slideshowInterval:5000,
-  birthdayMusicUrl:null, birthdayMusicName:null,
-  birthdaySpecialMusicUrl:null, birthdaySpecialMusicName:null
+  birthdayMusicUrl:null, birthdayMusicName:null
 };
 
 const PRESETS = [
@@ -631,17 +614,11 @@ function initTheme() {
   renderCollagePreview();
   renderSlideshowPreview();
 
-  // Yaren giriş müziği
+  // Müzik
   if (window.CT.birthdayMusicUrl) {
     document.getElementById('currentMusicName').textContent = window.CT.birthdayMusicName || 'Mevcut Şarkı';
     document.getElementById('musicPreview').src = window.CT.birthdayMusicUrl;
     document.getElementById('currentMusicInfo').style.display = 'block';
-  }
-  // 31 Mart özel müziği
-  if (window.CT.birthdaySpecialMusicUrl) {
-    document.getElementById('specialMusicName').textContent = window.CT.birthdaySpecialMusicName || 'Mevcut Şarkı';
-    document.getElementById('specialMusicPreview').src = window.CT.birthdaySpecialMusicUrl;
-    document.getElementById('specialMusicInfo').style.display = 'block';
   }
 
   updatePreview();
@@ -732,7 +709,7 @@ async function saveTheme() {
 }
 
 function resetTheme() {
-  window.CT = {bg:'#F5EDE3',primary:'#6B1E2E',secondary:'#8B3045',accent:'#C4956A',text:'#2A1018',bgType:'color',bgImage:null,bgOverlay:0,gradientDir:'135deg',gradientColor2:'#8B3045',patternType:'stripes',collageCols:3,collageImages:[],slideshowImages:[],slideshowInterval:5000,birthdayMusicUrl:null,birthdayMusicName:null,birthdaySpecialMusicUrl:null,birthdaySpecialMusicName:null};
+  window.CT = {bg:'#F5EDE3',primary:'#6B1E2E',secondary:'#8B3045',accent:'#C4956A',text:'#2A1018',bgType:'color',bgImage:null,bgOverlay:0,gradientDir:'135deg',gradientColor2:'#8B3045',patternType:'stripes',collageCols:3,collageImages:[],slideshowImages:[],slideshowInterval:5000,birthdayMusicUrl:null,birthdayMusicName:null};
   initTheme();
   showToast('Varsayılan temaya döndü');
 }
@@ -820,29 +797,6 @@ function removeBirthdayMusic() {
   document.getElementById('currentMusicInfo').style.display = 'none';
   document.getElementById('musicPreview').src = '';
   showToast('Şarkı kaldırıldı — Tema Kaydet ile uygula');
-}
-
-// 31 Mart özel müziği — tamamen ayrı, CT içinde farklı alan
-async function uploadBirthdaySpecialMusic(inp) {
-  const file = inp.files[0]; if (!file) return;
-  try {
-    showToast('31 Mart şarkısı yükleniyor...');
-    const r = await toCloud(file,'specialMusicBar','specialMusicTxt','specialMusicProgress');
-    window.CT.birthdaySpecialMusicUrl = r.secure_url;
-    window.CT.birthdaySpecialMusicName = file.name;
-    document.getElementById('specialMusicName').textContent = file.name;
-    document.getElementById('specialMusicPreview').src = r.secure_url;
-    document.getElementById('specialMusicInfo').style.display = 'block';
-    inp.value = '';
-    await saveTheme();
-    showToast('✓ 31 Mart şarkısı yüklendi ve kaydedildi!');
-  } catch(e) { showToast('Hata: '+e.message); }
-}
-function removeBirthdaySpecialMusic() {
-  window.CT.birthdaySpecialMusicUrl = null; window.CT.birthdaySpecialMusicName = null;
-  document.getElementById('specialMusicInfo').style.display = 'none';
-  document.getElementById('specialMusicPreview').src = '';
-  showToast('31 Mart şarkısı kaldırıldı — Tema Kaydet ile uygula');
 }
 
 // ─── ONAY ─────────────────────────────────────────────────────────
