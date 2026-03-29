@@ -1162,8 +1162,8 @@ const now = new Date(), el = document.getElementById('birthdayCheck');
 const m = now.getMonth(), d = now.getDate();
 if ((m === 2 && d === 31) || (m === 3 && d <= 5)) {
 el.innerHTML = `<div style="display:flex;flex-direction:column;align-items:center;gap:12px;">
-     <div class="birthday-badge">🎂 Doğum Günün Kutlu Olsun! 🎂</div>
-     <p style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--text-light);font-size:clamp(.9rem,2vw,1.1rem);">Mutlu yıllar güzel insan ✨</p>
+     <div class="birthday-badge">🎂 İyiki Varsın Kadın 🎂</div>
+     <p style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--text-light);font-size:clamp(.9rem,2vw,1.1rem);">Nice Beraber Senelere✨</p>
    </div>`;
 return;
 }
@@ -1171,7 +1171,11 @@ let target = new Date(now.getFullYear(), 2, 31);
 if (now > target) target = new Date(now.getFullYear()+1, 2, 31);
 function upd() {
 const diff = target - new Date();
-if (diff <= 0) { checkBirthday(); return; }
+if (diff <= 0) {
+  launchConfetti(); launchConfetti(); launchConfetti();
+  checkBirthday();
+  return;
+}
 const dy=Math.floor(diff/86400000), h=Math.floor(diff%86400000/3600000), mn=Math.floor(diff%3600000/60000), s=Math.floor(diff%60000/1000);
 el.innerHTML = `<p class="countdown-label">Doğum gününe kalan</p>
    <div class="countdown">
