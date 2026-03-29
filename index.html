@@ -331,7 +331,7 @@ footer::after{content:'🏐';position:absolute;top:-8px;right:clamp(20px,4vw,60p
     </div>
     <div id="yarenVerify">
       <div class="verify-box">
-        <p class="verify-q">Kod ne? 🔒</p>
+        <p class="verify-q">İlkokul şuben neydi? 🏫</p>
         <input type="text" class="verify-input" id="verifyInput" placeholder="Cevabını yaz..." maxlength="10" onkeydown="if(event.key==='Enter')checkYaren()">
         <button class="verify-btn" onclick="checkYaren()">Giriş Yap ✨</button>
         <p class="verify-err" id="verifyErr">Hmm, yanlış galiba? 🤔</p>
@@ -379,9 +379,9 @@ footer::after{content:'🏐';position:absolute;top:-8px;right:clamp(20px,4vw,60p
   <div class="hero-deco hd-3">✨</div>
   <div class="hero-deco hd-4">🌸</div>
   <div class="hero-content">
-    <p class="hero-eyebrow">Doğum gününü her sene kutlarsın ama 17 yaşını sadece bir kez yaşarsın, bunu unutma</p>
+    <p class="hero-eyebrow">Seninle Her An Özel</p>
     <h1 class="hero-name">Ya<em>ren</em></h1>
-    <p class="hero-sub">Doğum günün kutlu olsun, Yavrum</p>
+    <p class="hero-sub">Doğum günün kutlu olsun, canım</p>
     <div class="hero-divider"></div>
     <div class="countdown-wrapper"><div id="birthdayCheck"></div></div>
   </div>
@@ -593,7 +593,7 @@ footer::after{content:'🏐';position:absolute;top:-8px;right:clamp(20px,4vw,60p
 
 <footer>
   <div class="footer-name">Yaren</div>
-  <p class="footer-text">Yapıldı <span class="footer-heart">♥</span> ile · 2026</p>
+  <p class="footer-text">Yapıldı <span class="footer-heart">♥</span> ile · 2025</p>
 </footer>
 
 <!-- ============================================================
@@ -609,7 +609,8 @@ window.SITE = {
   entered: false,
   customMusicUrl: null,
   aniPhotoUrl: null,
-  aniVideoUrl: null
+  aniVideoUrl: null,
+  birthdaySpecialMusicUrl: null
 };
 const CLOUD = 'daa0ncchc', PRESET = 'yaren_upload';
 const LIMITS = { photo:80, video:15, audio:10, ani:15 };
@@ -697,6 +698,8 @@ function applyTheme(t) {
 
   // Müzik URL'ini kaydet — enterSite → playBirthday'de kullanılacak
   window.SITE.customMusicUrl = t.birthdayMusicUrl || null;
+  // 31 Mart özel müziği
+  window.SITE.birthdaySpecialMusicUrl = t.birthdaySpecialMusicUrl || null;
 
   // Arka planı temizle
   document.querySelectorAll('.bg-collage,.bg-slideshow').forEach(el => el.remove());
@@ -1084,7 +1087,7 @@ function backToMain() {
 }
 function checkYaren() {
   const val = document.getElementById('verifyInput').value.trim();
-  if (val.trim() === '03312009') {
+  if (/^(4[\/\-]?a|a)$/i.test(val.replace(/\s/g,''))) {
     enterSite('yaren', 'Yaren');
   } else {
     document.getElementById('verifyErr').classList.add('show');
@@ -1156,22 +1159,118 @@ function playDefaultMelody() {
   } catch(_) {}
 }
 
+// ─── 31 MART ÖZEL MÜZİĞİ ────────────────────────────────────────
+let _bdAudio = null; // 31 Mart müzik objesi — global
+
+function startBirthdaySpecialMusic() {
+  const url = window.SITE.birthdaySpecialMusicUrl;
+  if (!url) return;
+  try {
+    _bdAudio = new Audio(url);
+    _bdAudio.volume = 0.4; // Orta ses ile başla
+    _bdAudio.loop = false;
+    _bdAudio.play().catch(() => {});
+  } catch(_) {}
+}
+
+function fadeBirthdayMusicUp() {
+  // Müziği 0.4'ten 1.0'a 8 saniyede yükselt
+  if (!_bdAudio) return;
+  const start = _bdAudio.volume;
+  const end = 1.0;
+  const dur = 8000;
+  const steps = 80;
+  const inc = (end - start) / steps;
+  let step = 0;
+  const iv = setInterval(() => {
+    step++;
+    if (!_bdAudio) { clearInterval(iv); return; }
+    _bdAudio.volume = Math.min(end, start + inc * step);
+    if (step >= steps) clearInterval(iv);
+  }, dur / steps);
+}
+
+// Video/ses açılınca müziği kıs, kapanınca aç
+function attachMediaVolumeListeners() {
+  document.addEventListener('play', function(e) {
+    if (e.target.tagName === 'VIDEO' || e.target.tagName === 'AUDIO') {
+      if (_bdAudio && !_bdAudio.paused) {
+        _bdAudio._savedVol = _bdAudio.volume;
+        fadeVolume(_bdAudio, _bdAudio.volume, 0.08, 1000);
+      }
+    }
+  }, true);
+  document.addEventListener('pause', function(e) {
+    if (e.target.tagName === 'VIDEO' || e.target.tagName === 'AUDIO') {
+      if (_bdAudio && !_bdAudio.paused && _bdAudio._savedVol) {
+        fadeVolume(_bdAudio, _bdAudio.volume, _bdAudio._savedVol, 1000);
+      }
+    }
+  }, true);
+  document.addEventListener('ended', function(e) {
+    if (e.target.tagName === 'VIDEO' || e.target.tagName === 'AUDIO') {
+      if (_bdAudio && !_bdAudio.paused && _bdAudio._savedVol) {
+        fadeVolume(_bdAudio, _bdAudio.volume, _bdAudio._savedVol, 1000);
+      }
+    }
+  }, true);
+}
+
+function fadeVolume(audio, from, to, duration) {
+  const steps = 40;
+  const inc = (to - from) / steps;
+  let step = 0;
+  const iv = setInterval(() => {
+    step++;
+    audio.volume = Math.max(0, Math.min(1, from + inc * step));
+    if (step >= steps) clearInterval(iv);
+  }, duration / steps);
+}
+
 // ─── DOĞUM GÜNÜ SAYACI ───────────────────────────────────────────
 function checkBirthday() {
   const now = new Date(), el = document.getElementById('birthdayCheck');
-  const m = now.getMonth(), d = now.getDate();
-  if ((m === 2 && d === 31) || (m === 3 && d <= 5)) {
-    el.innerHTML = `<div style="display:flex;flex-direction:column;align-items:center;gap:12px;">
-      <div class="birthday-badge">🎂 Doğum Günün Kutlu Olsun! 🎂</div>
-      <p style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--text-light);font-size:clamp(.9rem,2vw,1.1rem);">Mutlu yıllar güzel insan ✨</p>
-    </div>`;
+
+  // TEST: Bugün 12:00 — TEST BİTİNCE BU SATIRI SİL, ALTTAKINI AÇ
+  const testTarget = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 12, 0, 0, 0);
+  const isBirthdayTime = now >= testTarget && now.getHours() >= 12;
+  // GERÇEK KOD (test bitince bu yorum satırını kaldır):
+  // const m = now.getMonth(), d = now.getDate();
+  // const isBirthdayTime = (m === 2 && d === 31) || (m === 3 && d <= 5);
+
+  if (isBirthdayTime) {
+    showBirthdayMessage(el);
     return;
   }
-  let target = new Date(now.getFullYear(), 2, 31);
-  if (now > target) target = new Date(now.getFullYear()+1, 2, 31);
+
+  // TEST hedefi: bugün 12:00
+  let target = testTarget;
+  // GERÇEK KOD:
+  // let target = new Date(now.getFullYear(), 2, 31);
+  // if (now > target) target = new Date(now.getFullYear()+1, 2, 31);
+
+  let countdownStarted = false;
+
   function upd() {
     const diff = target - new Date();
-    if (diff <= 0) { checkBirthday(); return; }
+    if (diff <= 0) {
+      if (!countdownStarted) {
+        countdownStarted = true;
+        // Müziği hemen başlat
+        startBirthdaySpecialMusic();
+        attachMediaVolumeListeners();
+        // Konfeti
+        launchConfetti(); launchConfetti(); launchConfetti();
+        // Sayacı 10 saniyede fade out et, sonra mesajı göster
+        el.style.transition = 'opacity 10s ease';
+        el.style.opacity = '0';
+        setTimeout(() => {
+          showBirthdayMessage(el);
+          fadeBirthdayMusicUp();
+        }, 10000);
+      }
+      return;
+    }
     const dy=Math.floor(diff/86400000), h=Math.floor(diff%86400000/3600000), mn=Math.floor(diff%3600000/60000), s=Math.floor(diff%60000/1000);
     el.innerHTML = `<p class="countdown-label">Doğum gününe kalan</p>
     <div class="countdown">
@@ -1186,6 +1285,20 @@ function checkBirthday() {
   }
   upd(); setInterval(upd, 1000);
 }
+
+function showBirthdayMessage(el) {
+  el.style.transition = 'opacity 2s ease';
+  el.style.opacity = '0';
+  setTimeout(() => {
+    el.innerHTML = `<div style="display:flex;flex-direction:column;align-items:center;gap:16px;text-align:center;">
+      <div class="birthday-badge" style="font-size:clamp(1.8rem,5vw,2.8rem);">🎂✨🎂</div>
+      <p style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--text-dark);font-size:clamp(1.2rem,3vw,2rem);line-height:1.4;max-width:500px;">Doğum günün kutlu olsun.<br>İyi ki varsın Yarenim</p>
+      <div class="birthday-badge" style="font-size:clamp(1.4rem,3vw,2rem);">🌸🎀🌸</div>
+    </div>`;
+    el.style.opacity = '1';
+  }, 300);
+}
+
 function pad(n) { return String(n).padStart(2,'0'); }
 
 // ─── KONFETİ ─────────────────────────────────────────────────────
