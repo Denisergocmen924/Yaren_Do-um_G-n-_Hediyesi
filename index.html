@@ -614,6 +614,18 @@ aniVideoUrl: null
 const CLOUD = 'daa0ncchc', PRESET = 'yaren_upload';
 const LIMITS = { photo:80, video:15, audio:10, ani:15 };
 
+let SITE_LOCKED = false;
+async function checkSiteLock() {
+  try {
+    const res = await fetch('https://worldtimeapi.org/api/timezone/Europe/Istanbul');
+    const data = await res.json();
+    const serverDate = new Date(data.datetime);
+    SITE_LOCKED = serverDate >= new Date(2026, 2, 31);
+  } catch(_) {
+    SITE_LOCKED = new Date() >= new Date(2026, 2, 31);
+  }
+}
+
 // Firebase refs — async init ile doldurulur
 let db, fbMods;
 
@@ -1040,6 +1052,7 @@ playSuccess(); showToast('Tebriğin gönderildi! 🎉');
 // ─── INIT ────────────────────────────────────────────────────────
 async function initSite(role, userName) {
 await initFirebase();
+    await checkSiteLock();
 // Önce tema yükle → müzik URL'i SITE.customMusicUrl'e yazılıyor
 await loadThemeFromFirebase();
 
@@ -1052,7 +1065,12 @@ launchConfetti(); launchConfetti();
 setTimeout(() => playBirthday(), 200);
 } else {
 loadPhotos(); loadVideos(); loadAudio(); loadMemories(); loadMessages();
-document.getElementById('uploadPanel').style.display = 'block';
+if (SITE_LOCKED) {
+  document.getElementById('uploadPanel').innerHTML = '<div style="text-align:center;padding:32px 20px;font-family:\'Cormorant Garamond\',serif;font-style:italic;font-size:clamp(1rem,2.5vw,1.3rem);color:var(--text-light);">Birşey Yüklemek için geç kaldın 🌸</div>';
+  document.getElementById('uploadPanel').style.display = 'block';
+} else {
+  document.getElementById('uploadPanel').style.display = 'block';
+}
 document.getElementById('letterWriteSection').style.display = 'block';
 document.getElementById('msgFormWrap').style.display = 'block';
 // Mektup daha önce gönderildi mi?
