@@ -9,11 +9,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --cream:#F5EDE3;--cream2:#EDE0D4;
-  --bordo:#6B1E2E;--bordo-light:#8B3045;--bordo-dark:#4A1020;
-  --gold:#C4956A;--text-dark:#2A1018;--text-mid:#5A3040;--text-light:#8A6070;
-  --shadow:rgba(107,30,46,.15);--shadow-lg:rgba(107,30,46,.25);
-  --radius:16px;--radius-sm:10px;--bg-color:#F5EDE3;
+--cream:#F5EDE3;--cream2:#EDE0D4;
+--bordo:#6B1E2E;--bordo-light:#8B3045;--bordo-dark:#4A1020;
+--gold:#C4956A;--text-dark:#2A1018;--text-mid:#5A3040;--text-light:#8A6070;
+--shadow:rgba(107,30,46,.15);--shadow-lg:rgba(107,30,46,.25);
+--radius:16px;--radius-sm:10px;--bg-color:#F5EDE3;
 }
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
@@ -185,18 +185,18 @@ section{position:relative;z-index:2;}
 .timeline{max-width:900px;margin:0 auto;padding:0 clamp(16px,4vw,40px);position:relative;}
 .timeline::before{content:'';position:absolute;left:clamp(20px,4vw,50%);top:0;bottom:0;width:1px;background:linear-gradient(to bottom,transparent,var(--bordo-light),var(--bordo),var(--bordo-light),transparent);transform:translateX(-50%);}
 @media(min-width:640px){
-  .timeline-item{display:grid;grid-template-columns:1fr 60px 1fr;margin-bottom:clamp(32px,5vw,56px);align-items:start;}
-  .tl-left{grid-column:1;text-align:right;padding-right:clamp(20px,3vw,40px);}
-  .tl-dot-wrap{grid-column:2;display:flex;justify-content:center;padding-top:8px;}
-  .tl-right{grid-column:3;padding-left:clamp(20px,3vw,40px);}
-  .tl-empty{grid-column:1;}
+.timeline-item{display:grid;grid-template-columns:1fr 60px 1fr;margin-bottom:clamp(32px,5vw,56px);align-items:start;}
+.tl-left{grid-column:1;text-align:right;padding-right:clamp(20px,3vw,40px);}
+.tl-dot-wrap{grid-column:2;display:flex;justify-content:center;padding-top:8px;}
+.tl-right{grid-column:3;padding-left:clamp(20px,3vw,40px);}
+.tl-empty{grid-column:1;}
 }
 @media(max-width:639px){
-  .timeline::before{left:clamp(16px,4vw,24px);transform:none;}
-  .timeline-item{display:block;padding-left:clamp(36px,8vw,52px);position:relative;margin-bottom:clamp(24px,4vw,40px);}
-  .tl-dot-wrap{position:absolute;left:clamp(9px,2.5vw,15px);top:8px;}
-  .tl-left,.tl-right{text-align:left!important;padding:0!important;}
-  .tl-empty{display:none;}
+.timeline::before{left:clamp(16px,4vw,24px);transform:none;}
+.timeline-item{display:block;padding-left:clamp(36px,8vw,52px);position:relative;margin-bottom:clamp(24px,4vw,40px);}
+.tl-dot-wrap{position:absolute;left:clamp(9px,2.5vw,15px);top:8px;}
+.tl-left,.tl-right{text-align:left!important;padding:0!important;}
+.tl-empty{display:none;}
 }
 .tl-dot{width:14px;height:14px;background:var(--bordo);border:3px solid var(--cream);border-radius:50%;box-shadow:0 0 0 2px var(--bordo);}
 .tl-content{background:#fff;border:1px solid rgba(107,30,46,.1);border-radius:var(--radius);box-shadow:0 4px 16px var(--shadow);overflow:hidden;}
@@ -309,308 +309,308 @@ footer::after{content:'🏐';position:absolute;top:-8px;right:clamp(20px,4vw,60p
 <div class="toast" id="toast"></div>
 
 <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
-  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
-  <img class="lightbox-img" id="lbImg" src="" alt="">
-  <div class="lightbox-cap" id="lbCap"></div>
-  <button class="lightbox-dl" id="lbDl" onclick="dlFile(window._lbUrl,window._lbName)">⬇ İndir</button>
+<button class="lightbox-close" onclick="closeLightbox()">✕</button>
+<img class="lightbox-img" id="lbImg" src="" alt="">
+<div class="lightbox-cap" id="lbCap"></div>
+<button class="lightbox-dl" id="lbDl" onclick="dlFile(window._lbUrl,window._lbName)">⬇ İndir</button>
 </div>
 
 <div id="splash">
-  <div class="splash-bg-deco">
-    <span>🎂</span><span>🏐</span><span>🌸</span><span>🎀</span><span>✨</span><span>🎂</span>
-  </div>
-  <div class="splash-inner">
-    <div id="splashMain">
-      <div class="splash-logo">Yaren</div>
-      <p class="splash-tagline">Seninle Her An</p>
-      <p class="splash-question">Kimsiniz? 🌸</p>
-      <div class="splash-buttons">
-        <button class="splash-btn splash-btn-yaren" onclick="showYarenVerify()">Ben Yaren'im</button>
-        <button class="splash-btn splash-btn-other" onclick="showDigerLogin()">Diğer</button>
-      </div>
-    </div>
-    <div id="yarenVerify">
-      <div class="verify-box">
-        <p class="verify-q">İlkokul şuben neydi? 🏫</p>
-        <input type="text" class="verify-input" id="verifyInput" placeholder="Cevabını yaz..." maxlength="10" onkeydown="if(event.key==='Enter')checkYaren()">
-        <button class="verify-btn" onclick="checkYaren()">Giriş Yap ✨</button>
-        <p class="verify-err" id="verifyErr">Hmm, yanlış galiba? 🤔</p>
-        <button class="verify-back" onclick="backToMain()">← Geri dön</button>
-      </div>
-    </div>
-    <div id="digerVerify">
-      <div class="verify-box">
-        <p class="verify-q" style="margin-bottom:20px;">Adınız ve soyadınız? 👋</p>
-        <input type="text" class="verify-input" id="digerAd" placeholder="Adınız..." maxlength="30" style="margin-bottom:10px;">
-        <input type="text" class="verify-input" id="digerSoyad" placeholder="Soyadınız..." maxlength="30" onkeydown="if(event.key==='Enter')checkDiger()">
-        <button class="verify-btn" onclick="checkDiger()">Giriş Yap →</button>
-        <p class="verify-err" id="digerErr">Lütfen adınızı ve soyadınızı girin.</p>
-        <button class="verify-back" onclick="backToMain()">← Geri dön</button>
-      </div>
-    </div>
-  </div>
+<div class="splash-bg-deco">
+<span>🎂</span><span>🏐</span><span>🌸</span><span>🎀</span><span>✨</span><span>🎂</span>
+</div>
+<div class="splash-inner">
+<div id="splashMain">
+<div class="splash-logo">Yaren</div>
+<p class="splash-tagline">Seninle Her An</p>
+<p class="splash-question">Kimsiniz? 🌸</p>
+<div class="splash-buttons">
+<button class="splash-btn splash-btn-yaren" onclick="showYarenVerify()">Ben Yaren'im</button>
+<button class="splash-btn splash-btn-other" onclick="showDigerLogin()">Diğer</button>
+</div>
+</div>
+<div id="yarenVerify">
+<div class="verify-box">
+<p class="verify-q">Kod ne? 🔒</p>
+<input type="text" class="verify-input" id="verifyInput" placeholder="Cevabını yaz..." maxlength="10" onkeydown="if(event.key==='Enter')checkYaren()">
+<button class="verify-btn" onclick="checkYaren()">Giriş Yap ✨</button>
+<p class="verify-err" id="verifyErr">Hmm, yanlış galiba? 🤔</p>
+<button class="verify-back" onclick="backToMain()">← Geri dön</button>
+</div>
+</div>
+<div id="digerVerify">
+<div class="verify-box">
+<p class="verify-q" style="margin-bottom:20px;">Adınız ve soyadınız? 👋</p>
+<input type="text" class="verify-input" id="digerAd" placeholder="Adınız..." maxlength="30" style="margin-bottom:10px;">
+<input type="text" class="verify-input" id="digerSoyad" placeholder="Soyadınız..." maxlength="30" onkeydown="if(event.key==='Enter')checkDiger()">
+<button class="verify-btn" onclick="checkDiger()">Giriş Yap →</button>
+<p class="verify-err" id="digerErr">Lütfen adınızı ve soyadınızı girin.</p>
+<button class="verify-back" onclick="backToMain()">← Geri dön</button>
+</div>
+</div>
+</div>
 </div>
 
 <nav id="navbar">
-  <div class="nav-logo">Yaren</div>
-  <ul class="nav-links">
-    <li><a href="#galeri" onclick="closeMobileMenu()">Galeri</a></li>
-    <li><a href="#anılar" onclick="closeMobileMenu()">Anılar</a></li>
-    <li><a href="#mektup" onclick="closeMobileMenu()">Mektup</a></li>
-    <li><a href="#mesajlar" onclick="closeMobileMenu()">Tebrikler</a></li>
-  </ul>
-  <button class="nav-hamburger" id="hamburger" onclick="toggleMobileMenu()">
-    <span></span><span></span><span></span>
-  </button>
+<div class="nav-logo">Yaren</div>
+<ul class="nav-links">
+<li><a href="#galeri" onclick="closeMobileMenu()">Galeri</a></li>
+<li><a href="#anılar" onclick="closeMobileMenu()">Anılar</a></li>
+<li><a href="#mektup" onclick="closeMobileMenu()">Mektup</a></li>
+<li><a href="#mesajlar" onclick="closeMobileMenu()">Tebrikler</a></li>
+</ul>
+<button class="nav-hamburger" id="hamburger" onclick="toggleMobileMenu()">
+<span></span><span></span><span></span>
+</button>
 </nav>
 <div class="mobile-menu" id="mobileMenu">
-  <div class="user-badge" id="mobileBadge"></div>
-  <a href="#galeri" onclick="closeMobileMenu()">Galeri</a>
-  <a href="#anılar" onclick="closeMobileMenu()">Anılar</a>
-  <a href="#mektup" onclick="closeMobileMenu()">Mektup</a>
-  <a href="#mesajlar" onclick="closeMobileMenu()">Tebrikler</a>
+<div class="user-badge" id="mobileBadge"></div>
+<a href="#galeri" onclick="closeMobileMenu()">Galeri</a>
+<a href="#anılar" onclick="closeMobileMenu()">Anılar</a>
+<a href="#mektup" onclick="closeMobileMenu()">Mektup</a>
+<a href="#mesajlar" onclick="closeMobileMenu()">Tebrikler</a>
 </div>
 
 <section id="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-ornament">Yaren</div>
-  <div class="hero-deco hd-1">🎂</div>
-  <div class="hero-deco hd-2">🏐</div>
-  <div class="hero-deco hd-3">✨</div>
-  <div class="hero-deco hd-4">🌸</div>
-  <div class="hero-content">
-    <p class="hero-eyebrow">Seninle Her An Özel</p>
-    <h1 class="hero-name">Ya<em>ren</em></h1>
-    <p class="hero-sub">Doğum günün kutlu olsun, canım</p>
-    <div class="hero-divider"></div>
-    <div class="countdown-wrapper"><div id="birthdayCheck"></div></div>
-  </div>
-  <div class="scroll-hint"><span>Keşfet</span><div class="scroll-line"></div></div>
+<div class="hero-bg"></div>
+<div class="hero-ornament">Yaren</div>
+<div class="hero-deco hd-1">🎂</div>
+<div class="hero-deco hd-2">🏐</div>
+<div class="hero-deco hd-3">✨</div>
+<div class="hero-deco hd-4">🌸</div>
+<div class="hero-content">
+<p class="hero-eyebrow">Doğum gününü her sene kutlarsın ama 17 yaşını sadece bir kez yaşarsın, bunu unutma</p>
+<h1 class="hero-name">Ya<em>ren</em></h1>
+<p class="hero-sub">Doğum günün kutlu olsun, Yavrum</p>
+<div class="hero-divider"></div>
+<div class="countdown-wrapper"><div id="birthdayCheck"></div></div>
+</div>
+<div class="scroll-hint"><span>Keşfet</span><div class="scroll-line"></div></div>
 </section>
 
 <section id="galeri">
-  <div class="section-header fade-in-up">
-    <span class="sec-deco sd-tl">🎂</span><span class="sec-deco sd-tr">🏐</span>
-    <span class="section-eyebrow">Anların Işığı</span>
-    <h2 class="section-title">Gal<em>eri</em></h2>
-    <div class="bordo-line"></div>
-  </div>
-  <div class="upload-panel" id="uploadPanel" style="display:none;">
-    <div class="upload-panel-box">
-      <p class="upload-panel-title">İçerik Ekle ✨</p>
-      <div class="upload-tabs">
-        <button class="upload-tab active" onclick="switchUpTab('photo',this)">📷 Fotoğraf</button>
-        <button class="upload-tab" onclick="switchUpTab('video',this)">🎬 Video</button>
-        <button class="upload-tab" onclick="switchUpTab('audio',this)">🎵 Ses</button>
-        <button class="upload-tab" onclick="switchUpTab('ani',this)">✨ Anı</button>
-        <button class="upload-tab-link" onclick="scrollToSection('mektup')">✉️ Mektup</button>
-        <button class="upload-tab-link" onclick="scrollToSection('mesajlar')">🎉 Tebrik</button>
-      </div>
-      <div class="upload-panel-section active" id="up-photo">
-        <div class="up-form-group">
-          <label class="up-label">Açıklama</label>
-          <input type="text" class="up-input" id="upPhotoCaption" placeholder="Bu anın açıklaması...">
-        </div>
-        <div class="up-zone">
-          <input type="file" accept="image/*" multiple onchange="uploadPhotos(this)">
-          <div class="up-zone-icon">🖼️</div>
-          <p class="up-zone-text">Fotoğraf seç veya sürükle</p>
-          <p class="up-zone-sub">JPG, PNG, WEBP</p>
-        </div>
-        <div class="up-progress" id="upPhotoProgress">
-          <div class="up-prog-bg"><div class="up-prog-fill" id="upPhotoBar"></div></div>
-          <p class="up-prog-txt" id="upPhotoTxt">Yükleniyor...</p>
-        </div>
-        <p class="limit-info" id="photoLimitInfo"></p>
-        <div class="pending-note">⏳ Fotoğraflarınız admin onayından sonra yayınlanır.</div>
-      </div>
-      <div class="upload-panel-section" id="up-video">
-        <div class="up-form-group">
-          <label class="up-label">Video Başlığı</label>
-          <input type="text" class="up-input" id="upVideoTitle" placeholder="Video başlığı...">
-        </div>
-        <div class="up-zone">
-          <input type="file" accept="video/*" onchange="uploadVideo(this)">
-          <div class="up-zone-icon">🎬</div>
-          <p class="up-zone-text">Video seç</p>
-          <p class="up-zone-sub">MP4, MOV, WEBM</p>
-        </div>
-        <div class="up-progress" id="upVideoProgress">
-          <div class="up-prog-bg"><div class="up-prog-fill" id="upVideoBar"></div></div>
-          <p class="up-prog-txt" id="upVideoTxt">Yükleniyor...</p>
-        </div>
-        <p class="limit-info" id="videoLimitInfo"></p>
-        <div class="pending-note">⏳ Videonuz admin onayından sonra yayınlanır.</div>
-      </div>
-      <div class="upload-panel-section" id="up-audio">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
-          <div class="up-form-group">
-            <label class="up-label">Başlık</label>
-            <input type="text" class="up-input" id="upAudioTitle" placeholder="Başlık...">
-          </div>
-          <div class="up-form-group">
-            <label class="up-label">Süre</label>
-            <input type="text" class="up-input" id="upAudioDur" placeholder="2:34">
-          </div>
-        </div>
-        <div class="up-zone">
-          <input type="file" accept="audio/*" onchange="uploadAudio(this)">
-          <div class="up-zone-icon">🎵</div>
-          <p class="up-zone-text">Ses dosyası seç</p>
-          <p class="up-zone-sub">MP3, WAV, M4A</p>
-        </div>
-        <div class="up-progress" id="upAudioProgress">
-          <div class="up-prog-bg"><div class="up-prog-fill" id="upAudioBar"></div></div>
-          <p class="up-prog-txt" id="upAudioTxt">Yükleniyor...</p>
-        </div>
-        <p class="limit-info" id="audioLimitInfo"></p>
-        <div class="pending-note">⏳ Ses kaydınız admin onayından sonra yayınlanır.</div>
-      </div>
-      <div class="upload-panel-section" id="up-ani">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
-          <div class="up-form-group">
-            <label class="up-label">Başlık</label>
-            <input type="text" class="up-input" id="upAniTitle" placeholder="Anının başlığı...">
-          </div>
-          <div class="up-form-group">
-            <label class="up-label">Görünen Tarih</label>
-            <input type="text" class="up-input" id="upAniDateDisplay" placeholder="Yaz 2018...">
-          </div>
-        </div>
-        <div class="up-form-group">
-          <label class="up-label">Sıralama Tarihi</label>
-          <input type="date" class="up-input" id="upAniDate">
-        </div>
-        <div class="up-form-group">
-          <label class="up-label">Açıklama</label>
-          <textarea class="up-textarea" id="upAniText" placeholder="Bu anı hakkında yaz..."></textarea>
-        </div>
-        <div class="up-form-group">
-          <label class="up-label">Fotoğraf (isteğe bağlı)</label>
-          <div class="up-zone" style="padding:20px;">
-            <input type="file" accept="image/*" onchange="uploadAniPhoto(this)">
-            <div class="up-zone-icon" style="font-size:1.5rem;">🖼️</div>
-            <p class="up-zone-text" style="font-size:.88rem;">Fotoğraf ekle</p>
-          </div>
-          <div class="up-progress" id="upAniPhotoProgress">
-            <div class="up-prog-bg"><div class="up-prog-fill" id="upAniPhotoBar"></div></div>
-            <p class="up-prog-txt" id="upAniPhotoTxt">Yükleniyor...</p>
-          </div>
-          <div id="aniPhotoPreview" style="margin-top:8px;"></div>
-        </div>
-        <div class="up-form-group">
-          <label class="up-label">Video (isteğe bağlı, max 3)</label>
-          <div class="up-zone" style="padding:20px;">
-            <input type="file" accept="video/*" multiple onchange="uploadAniVideo(this)">
-            <div class="up-zone-icon" style="font-size:1.5rem;">🎬</div>
-            <p class="up-zone-text" style="font-size:.88rem;">Video ekle (max 3)</p>
-            <p class="up-zone-sub">MP4, MOV, WEBM</p>
-          </div>
-          <div class="up-progress" id="upAniVideoProgress">
-            <div class="up-prog-bg"><div class="up-prog-fill" id="upAniVideoBar"></div></div>
-            <p class="up-prog-txt" id="upAniVideoTxt">Yükleniyor...</p>
-          </div>
-          <div id="aniVideoPreview" style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap;"></div>
-        </div>
-        <button class="lw-submit" style="background:var(--bordo);color:#fff;border-radius:10px;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;padding:13px;" onclick="uploadAni()">Anı Gönder ✨</button>
-        <p class="limit-info" id="aniLimitInfo"></p>
-        <div class="pending-note" style="margin-top:12px;">⏳ Anınız admin onayından sonra görünür.</div>
-      </div>
-    </div>
-  </div>
-  <div class="gallery-tabs">
-    <button class="gallery-tab active" onclick="switchGalleryTab('photos',this)">Fotoğraflar</button>
-    <button class="gallery-tab" onclick="switchGalleryTab('videos',this)">Videolar</button>
-    <button class="gallery-tab" onclick="switchGalleryTab('audio',this)">Ses</button>
-  </div>
-  <div class="gallery-panel active" id="tab-photos">
-    <div class="photo-grid" id="photoGrid"><div class="loading-s"><div class="spinner"></div><p>Yükleniyor...</p></div></div>
-  </div>
-  <div class="gallery-panel" id="tab-videos">
-    <div class="video-grid" id="videoGrid"><div class="loading-s" style="grid-column:1/-1"><div class="spinner"></div><p>Yükleniyor...</p></div></div>
-  </div>
-  <div class="gallery-panel" id="tab-audio">
-    <div class="audio-list" id="audioList"><div class="loading-s"><div class="spinner"></div><p>Yükleniyor...</p></div></div>
-  </div>
+<div class="section-header fade-in-up">
+<span class="sec-deco sd-tl">🎂</span><span class="sec-deco sd-tr">🏐</span>
+<span class="section-eyebrow">Anların Işığı</span>
+<h2 class="section-title">Gal<em>eri</em></h2>
+<div class="bordo-line"></div>
+</div>
+<div class="upload-panel" id="uploadPanel" style="display:none;">
+<div class="upload-panel-box">
+<p class="upload-panel-title">İçerik Ekle ✨</p>
+<div class="upload-tabs">
+<button class="upload-tab active" onclick="switchUpTab('photo',this)">📷 Fotoğraf</button>
+<button class="upload-tab" onclick="switchUpTab('video',this)">🎬 Video</button>
+<button class="upload-tab" onclick="switchUpTab('audio',this)">🎵 Ses</button>
+<button class="upload-tab" onclick="switchUpTab('ani',this)">✨ Anı</button>
+<button class="upload-tab-link" onclick="scrollToSection('mektup')">✉️ Mektup</button>
+<button class="upload-tab-link" onclick="scrollToSection('mesajlar')">🎉 Tebrik</button>
+</div>
+<div class="upload-panel-section active" id="up-photo">
+<div class="up-form-group">
+<label class="up-label">Açıklama</label>
+<input type="text" class="up-input" id="upPhotoCaption" placeholder="Bu anın açıklaması...">
+</div>
+<div class="up-zone">
+<input type="file" accept="image/*" multiple onchange="uploadPhotos(this)">
+<div class="up-zone-icon">🖼️</div>
+<p class="up-zone-text">Fotoğraf seç veya sürükle</p>
+<p class="up-zone-sub">JPG, PNG, WEBP</p>
+</div>
+<div class="up-progress" id="upPhotoProgress">
+<div class="up-prog-bg"><div class="up-prog-fill" id="upPhotoBar"></div></div>
+<p class="up-prog-txt" id="upPhotoTxt">Yükleniyor...</p>
+</div>
+<p class="limit-info" id="photoLimitInfo"></p>
+<div class="pending-note">⏳ Fotoğraflarınız admin onayından sonra yayınlanır.</div>
+</div>
+<div class="upload-panel-section" id="up-video">
+<div class="up-form-group">
+<label class="up-label">Video Başlığı</label>
+<input type="text" class="up-input" id="upVideoTitle" placeholder="Video başlığı...">
+</div>
+<div class="up-zone">
+<input type="file" accept="video/*" onchange="uploadVideo(this)">
+<div class="up-zone-icon">🎬</div>
+<p class="up-zone-text">Video seç</p>
+<p class="up-zone-sub">MP4, MOV, WEBM</p>
+</div>
+<div class="up-progress" id="upVideoProgress">
+<div class="up-prog-bg"><div class="up-prog-fill" id="upVideoBar"></div></div>
+<p class="up-prog-txt" id="upVideoTxt">Yükleniyor...</p>
+</div>
+<p class="limit-info" id="videoLimitInfo"></p>
+<div class="pending-note">⏳ Videonuz admin onayından sonra yayınlanır.</div>
+</div>
+<div class="upload-panel-section" id="up-audio">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+<div class="up-form-group">
+<label class="up-label">Başlık</label>
+<input type="text" class="up-input" id="upAudioTitle" placeholder="Başlık...">
+</div>
+<div class="up-form-group">
+<label class="up-label">Süre</label>
+<input type="text" class="up-input" id="upAudioDur" placeholder="2:34">
+</div>
+</div>
+<div class="up-zone">
+<input type="file" accept="audio/*" onchange="uploadAudio(this)">
+<div class="up-zone-icon">🎵</div>
+<p class="up-zone-text">Ses dosyası seç</p>
+<p class="up-zone-sub">MP3, WAV, M4A</p>
+</div>
+<div class="up-progress" id="upAudioProgress">
+<div class="up-prog-bg"><div class="up-prog-fill" id="upAudioBar"></div></div>
+<p class="up-prog-txt" id="upAudioTxt">Yükleniyor...</p>
+</div>
+<p class="limit-info" id="audioLimitInfo"></p>
+<div class="pending-note">⏳ Ses kaydınız admin onayından sonra yayınlanır.</div>
+</div>
+<div class="upload-panel-section" id="up-ani">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+<div class="up-form-group">
+<label class="up-label">Başlık</label>
+<input type="text" class="up-input" id="upAniTitle" placeholder="Anının başlığı...">
+</div>
+<div class="up-form-group">
+<label class="up-label">Görünen Tarih</label>
+<input type="text" class="up-input" id="upAniDateDisplay" placeholder="Yaz 2018...">
+</div>
+</div>
+<div class="up-form-group">
+<label class="up-label">Sıralama Tarihi</label>
+<input type="date" class="up-input" id="upAniDate">
+</div>
+<div class="up-form-group">
+<label class="up-label">Açıklama</label>
+<textarea class="up-textarea" id="upAniText" placeholder="Bu anı hakkında yaz..."></textarea>
+</div>
+<div class="up-form-group">
+<label class="up-label">Fotoğraf (isteğe bağlı)</label>
+<div class="up-zone" style="padding:20px;">
+<input type="file" accept="image/*" onchange="uploadAniPhoto(this)">
+<div class="up-zone-icon" style="font-size:1.5rem;">🖼️</div>
+<p class="up-zone-text" style="font-size:.88rem;">Fotoğraf ekle</p>
+</div>
+<div class="up-progress" id="upAniPhotoProgress">
+<div class="up-prog-bg"><div class="up-prog-fill" id="upAniPhotoBar"></div></div>
+<p class="up-prog-txt" id="upAniPhotoTxt">Yükleniyor...</p>
+</div>
+<div id="aniPhotoPreview" style="margin-top:8px;"></div>
+</div>
+<div class="up-form-group">
+<label class="up-label">Video (isteğe bağlı, max 3)</label>
+<div class="up-zone" style="padding:20px;">
+<input type="file" accept="video/*" multiple onchange="uploadAniVideo(this)">
+<div class="up-zone-icon" style="font-size:1.5rem;">🎬</div>
+<p class="up-zone-text" style="font-size:.88rem;">Video ekle (max 3)</p>
+<p class="up-zone-sub">MP4, MOV, WEBM</p>
+</div>
+<div class="up-progress" id="upAniVideoProgress">
+<div class="up-prog-bg"><div class="up-prog-fill" id="upAniVideoBar"></div></div>
+<p class="up-prog-txt" id="upAniVideoTxt">Yükleniyor...</p>
+</div>
+<div id="aniVideoPreview" style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap;"></div>
+</div>
+<button class="lw-submit" style="background:var(--bordo);color:#fff;border-radius:10px;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;padding:13px;" onclick="uploadAni()">Anı Gönder ✨</button>
+<p class="limit-info" id="aniLimitInfo"></p>
+<div class="pending-note" style="margin-top:12px;">⏳ Anınız admin onayından sonra görünür.</div>
+</div>
+</div>
+</div>
+<div class="gallery-tabs">
+<button class="gallery-tab active" onclick="switchGalleryTab('photos',this)">Fotoğraflar</button>
+<button class="gallery-tab" onclick="switchGalleryTab('videos',this)">Videolar</button>
+<button class="gallery-tab" onclick="switchGalleryTab('audio',this)">Ses</button>
+</div>
+<div class="gallery-panel active" id="tab-photos">
+<div class="photo-grid" id="photoGrid"><div class="loading-s"><div class="spinner"></div><p>Yükleniyor...</p></div></div>
+</div>
+<div class="gallery-panel" id="tab-videos">
+<div class="video-grid" id="videoGrid"><div class="loading-s" style="grid-column:1/-1"><div class="spinner"></div><p>Yükleniyor...</p></div></div>
+</div>
+<div class="gallery-panel" id="tab-audio">
+<div class="audio-list" id="audioList"><div class="loading-s"><div class="spinner"></div><p>Yükleniyor...</p></div></div>
+</div>
 </section>
 
 <section id="anılar">
-  <div class="section-header fade-in-up">
-    <span class="sec-deco sd-tl">🌸</span><span class="sec-deco sd-tr">✨</span>
-    <span class="section-eyebrow">Geçmişten Bugüne</span>
-    <h2 class="section-title">An<em>ılar</em></h2>
-    <div class="bordo-line"></div>
-  </div>
-  <div class="timeline" id="timeline"><div class="loading-s"><div class="spinner"></div><p>Yükleniyor...</p></div></div>
+<div class="section-header fade-in-up">
+<span class="sec-deco sd-tl">🌸</span><span class="sec-deco sd-tr">✨</span>
+<span class="section-eyebrow">Geçmişten Bugüne</span>
+<h2 class="section-title">An<em>ılar</em></h2>
+<div class="bordo-line"></div>
+</div>
+<div class="timeline" id="timeline"><div class="loading-s"><div class="spinner"></div><p>Yükleniyor...</p></div></div>
 </section>
 
 <section id="mektup">
-  <div class="section-header fade-in-up">
-    <span class="section-eyebrow">Kalbinden Kalbe</span>
-    <h2 class="section-title" style="color:var(--cream);">Mek<em style="color:rgba(245,237,227,.55);">tup</em></h2>
-    <div class="bordo-line"></div>
-  </div>
-  <div class="letter-write" id="letterWriteSection" style="display:none;">
-    <div class="letter-write-box">
-      <h3 class="lw-title">Yaren'e Mektup Yaz ✉️</h3>
-      <div id="letterWriteForm">
-        <label class="lw-label">Mektubunuz</label>
-        <textarea class="lw-textarea" id="letterMsg" placeholder="Yaren'e mektubunuzu yazın..."></textarea>
-        <button class="lw-submit" onclick="sendLetter()">Gönder ♥</button>
-      </div>
-      <div class="lw-already" id="letterAlready">Mektubunuz Yaren'e iletildi 🌸<br><span style="font-size:.82rem;opacity:.7;">Sadece o okuyabilecek.</span></div>
-    </div>
-  </div>
-  <div id="lettersList">
-    <div class="yaren-badge"><span>🔒 Sadece Yaren Görebilir</span></div>
-    <div id="lettersContainer"><div class="loading-s"><div class="spinner"></div></div></div>
-  </div>
-  <div id="letterNone" style="text-align:center;padding:clamp(24px,5vw,48px);font-family:'Cormorant Garamond',serif;font-style:italic;color:rgba(245,237,227,.4);font-size:clamp(.9rem,2vw,1.1rem);display:none;">Henüz mektup yok 🌸</div>
+<div class="section-header fade-in-up">
+<span class="section-eyebrow">Kalbinden Kalbe</span>
+<h2 class="section-title" style="color:var(--cream);">Mek<em style="color:rgba(245,237,227,.55);">tup</em></h2>
+<div class="bordo-line"></div>
+</div>
+<div class="letter-write" id="letterWriteSection" style="display:none;">
+<div class="letter-write-box">
+<h3 class="lw-title">Yaren'e Mektup Yaz ✉️</h3>
+<div id="letterWriteForm">
+<label class="lw-label">Mektubunuz</label>
+<textarea class="lw-textarea" id="letterMsg" placeholder="Yaren'e mektubunuzu yazın..."></textarea>
+<button class="lw-submit" onclick="sendLetter()">Gönder ♥</button>
+</div>
+<div class="lw-already" id="letterAlready">Mektubunuz Yaren'e iletildi 🌸<br><span style="font-size:.82rem;opacity:.7;">Sadece o okuyabilecek.</span></div>
+</div>
+</div>
+<div id="lettersList">
+<div class="yaren-badge"><span>🔒 Sadece Yaren Görebilir</span></div>
+<div id="lettersContainer"><div class="loading-s"><div class="spinner"></div></div></div>
+</div>
+<div id="letterNone" style="text-align:center;padding:clamp(24px,5vw,48px);font-family:'Cormorant Garamond',serif;font-style:italic;color:rgba(245,237,227,.4);font-size:clamp(.9rem,2vw,1.1rem);display:none;">Henüz mektup yok 🌸</div>
 </section>
 
 <section id="mesajlar">
-  <div class="section-header fade-in-up">
-    <span class="sec-deco sd-tl">🎀</span><span class="sec-deco sd-tr">🎂</span>
-    <span class="section-eyebrow">Sevdiklerinden</span>
-    <h2 class="section-title">Teb<em>rikler</em></h2>
-    <div class="bordo-line"></div>
-  </div>
-  <div class="msg-form-wrap" id="msgFormWrap" style="display:none;">
-    <div class="msg-form-box">
-      <h3 class="msg-form-title">Yaren'e Tebrik Bırak 🎂</h3>
-      <div id="msgForm">
-        <label class="mf-label">Mesajınız</label>
-        <textarea class="mf-textarea" id="msgText" placeholder="Tebrik mesajınızı yazın..." maxlength="400"></textarea>
-        <button class="mf-submit" onclick="submitMessage()">Gönder ♥</button>
-      </div>
-      <div class="mf-already" id="msgAlready">Tebriğiniz gönderildi! 🎉</div>
-    </div>
-  </div>
-  <div class="messages-grid" id="messagesGrid">
-    <div class="loading-s" style="grid-column:1/-1"><div class="spinner"></div><p>Yükleniyor...</p></div>
-  </div>
+<div class="section-header fade-in-up">
+<span class="sec-deco sd-tl">🎀</span><span class="sec-deco sd-tr">🎂</span>
+<span class="section-eyebrow">Sevdiklerinden</span>
+<h2 class="section-title">Teb<em>rikler</em></h2>
+<div class="bordo-line"></div>
+</div>
+<div class="msg-form-wrap" id="msgFormWrap" style="display:none;">
+<div class="msg-form-box">
+<h3 class="msg-form-title">Yaren'e Tebrik Bırak 🎂</h3>
+<div id="msgForm">
+<label class="mf-label">Mesajınız</label>
+<textarea class="mf-textarea" id="msgText" placeholder="Tebrik mesajınızı yazın..." maxlength="400"></textarea>
+<button class="mf-submit" onclick="submitMessage()">Gönder ♥</button>
+</div>
+<div class="mf-already" id="msgAlready">Tebriğiniz gönderildi! 🎉</div>
+</div>
+</div>
+<div class="messages-grid" id="messagesGrid">
+<div class="loading-s" style="grid-column:1/-1"><div class="spinner"></div><p>Yükleniyor...</p></div>
+</div>
 </section>
 
 <footer>
-  <div class="footer-name">Yaren</div>
+<div class="footer-name">Yaren</div>
   <p class="footer-text">Yapıldı <span class="footer-heart">♥</span> ile · 2025</p>
+  <p class="footer-text">Yapıldı <span class="footer-heart">♥</span> ile · 2026</p>
 </footer>
 
 <!-- ============================================================
-     TÜM KOD TEK PLAIN SCRIPT BLOĞUNDA
-     Firebase import dinamik olarak yapılıyor
-     Böylece module/plain script scope sorunu yok
-     ============================================================ -->
+    TÜM KOD TEK PLAIN SCRIPT BLOĞUNDA
+    Firebase import dinamik olarak yapılıyor
+    Böylece module/plain script scope sorunu yok
+    ============================================================ -->
 <script>
 // ─── GLOBAL STATE ───────────────────────────────────────────────
 window.SITE = {
-  currentUser: null,
-  currentRole: null,
-  entered: false,
-  customMusicUrl: null,
-  aniPhotoUrl: null,
-  aniVideoUrl: null,
-  birthdaySpecialMusicUrl: null
+currentUser: null,
+currentRole: null,
+entered: false,
+customMusicUrl: null,
+aniPhotoUrl: null,
+aniVideoUrl: null
 };
 const CLOUD = 'daa0ncchc', PRESET = 'yaren_upload';
 const LIMITS = { photo:80, video:15, audio:10, ani:15 };
@@ -620,696 +620,584 @@ let db, fbMods;
 
 // ─── FIREBASE INIT ───────────────────────────────────────────────
 async function initFirebase() {
-  if (db) return;
-  const { initializeApp } = await import("https://www.gstatic.com/firebasejs/11.0.0/firebase-app.js");
-  const mods = await import("https://www.gstatic.com/firebasejs/11.0.0/firebase-firestore.js");
-  const app = initializeApp({
-    apiKey:"AIzaSyCTEyS2EKjXnQp1YsrpiVnCvT34Yq-O0Vs",
-    authDomain:"yaren-site-8ef75.firebaseapp.com",
-    projectId:"yaren-site-8ef75",
-    storageBucket:"yaren-site-8ef75.firebasestorage.app",
-    messagingSenderId:"257811087352",
-    appId:"1:257811087352:web:3f1868ebdee5d0ff2d200d"
-  });
-  db = mods.getFirestore(app);
-  fbMods = mods;
+if (db) return;
+const { initializeApp } = await import("https://www.gstatic.com/firebasejs/11.0.0/firebase-app.js");
+const mods = await import("https://www.gstatic.com/firebasejs/11.0.0/firebase-firestore.js");
+const app = initializeApp({
+apiKey:"AIzaSyCTEyS2EKjXnQp1YsrpiVnCvT34Yq-O0Vs",
+authDomain:"yaren-site-8ef75.firebaseapp.com",
+projectId:"yaren-site-8ef75",
+storageBucket:"yaren-site-8ef75.firebasestorage.app",
+messagingSenderId:"257811087352",
+appId:"1:257811087352:web:3f1868ebdee5d0ff2d200d"
+});
+db = mods.getFirestore(app);
+fbMods = mods;
 }
 
 // ─── CLOUDINARY ──────────────────────────────────────────────────
 function toCloud(file, barId, txtId, wrapId) {
-  const wrap = wrapId ? document.getElementById(wrapId) : null;
-  const bar  = barId  ? document.getElementById(barId)  : null;
-  const txt  = txtId  ? document.getElementById(txtId)  : null;
-  if (wrap) wrap.classList.add('show');
-  if (bar) bar.style.width = '0%';
-  // image → image endpoint, ses/video → video endpoint
-  const cloudType = file.type.startsWith('image/') ? 'image' : 'video';
-  return new Promise((res, rej) => {
-    const fd = new FormData();
-    fd.append('file', file);
-    fd.append('upload_preset', PRESET);
-    const xhr = new XMLHttpRequest();
-    xhr.open('POST', `https://api.cloudinary.com/v1_1/${CLOUD}/${cloudType}/upload`);
-    xhr.upload.onprogress = e => {
-      if (e.lengthComputable && bar) {
-        const p = Math.round(e.loaded / e.total * 100);
-        bar.style.width = p + '%';
-        if (txt) txt.textContent = `%${p}`;
-      }
-    };
-    xhr.onload = () => {
-      if (wrap) wrap.classList.remove('show');
-      xhr.status === 200 ? res(JSON.parse(xhr.responseText)) : rej(new Error('Yükleme başarısız (' + xhr.status + ')'));
-    };
-    xhr.onerror = () => { if (wrap) wrap.classList.remove('show'); rej(new Error('Ağ hatası')); };
-    xhr.send(fd);
-  });
+const wrap = wrapId ? document.getElementById(wrapId) : null;
+const bar  = barId  ? document.getElementById(barId)  : null;
+const txt  = txtId  ? document.getElementById(txtId)  : null;
+if (wrap) wrap.classList.add('show');
+if (bar) bar.style.width = '0%';
+// image → image endpoint, ses/video → video endpoint
+const cloudType = file.type.startsWith('image/') ? 'image' : 'video';
+return new Promise((res, rej) => {
+const fd = new FormData();
+fd.append('file', file);
+fd.append('upload_preset', PRESET);
+const xhr = new XMLHttpRequest();
+xhr.open('POST', `https://api.cloudinary.com/v1_1/${CLOUD}/${cloudType}/upload`);
+xhr.upload.onprogress = e => {
+if (e.lengthComputable && bar) {
+const p = Math.round(e.loaded / e.total * 100);
+bar.style.width = p + '%';
+if (txt) txt.textContent = `%${p}`;
+}
+};
+xhr.onload = () => {
+if (wrap) wrap.classList.remove('show');
+xhr.status === 200 ? res(JSON.parse(xhr.responseText)) : rej(new Error('Yükleme başarısız (' + xhr.status + ')'));
+};
+xhr.onerror = () => { if (wrap) wrap.classList.remove('show'); rej(new Error('Ağ hatası')); };
+xhr.send(fd);
+});
 }
 
 // ─── TEMA ────────────────────────────────────────────────────────
 async function loadThemeFromFirebase() {
-  try {
-    await initFirebase();
-    const { doc, getDoc } = fbMods;
-    const snap = await getDoc(doc(db, 'settings', 'theme'));
-    if (snap.exists()) {
-      const t = snap.data();
-      // localStorage'a da yaz (offline fallback)
-      localStorage.setItem('ya_theme', JSON.stringify(t));
-      applyTheme(t);
-      return t;
-    }
-  } catch(e) {
-    // Firebase başarısız → localStorage fallback
-    const cached = localStorage.getItem('ya_theme');
-    if (cached) { try { applyTheme(JSON.parse(cached)); } catch(_) {} }
-  }
-  return null;
+try {
+await initFirebase();
+const { doc, getDoc } = fbMods;
+const snap = await getDoc(doc(db, 'settings', 'theme'));
+if (snap.exists()) {
+const t = snap.data();
+// localStorage'a da yaz (offline fallback)
+localStorage.setItem('ya_theme', JSON.stringify(t));
+applyTheme(t);
+return t;
+}
+} catch(e) {
+// Firebase başarısız → localStorage fallback
+const cached = localStorage.getItem('ya_theme');
+if (cached) { try { applyTheme(JSON.parse(cached)); } catch(_) {} }
+}
+return null;
 }
 
 function applyTheme(t) {
-  if (!t) return;
-  const r = document.documentElement.style;
-  if (t.bg)        r.setProperty('--bg-color',      t.bg);
-  if (t.primary)   r.setProperty('--bordo',          t.primary);
-  if (t.secondary) r.setProperty('--bordo-light',    t.secondary);
-  if (t.accent)    r.setProperty('--gold',            t.accent);
-  if (t.text)      r.setProperty('--text-dark',       t.text);
+if (!t) return;
+const r = document.documentElement.style;
+if (t.bg)        r.setProperty('--bg-color',      t.bg);
+if (t.primary)   r.setProperty('--bordo',          t.primary);
+if (t.secondary) r.setProperty('--bordo-light',    t.secondary);
+if (t.accent)    r.setProperty('--gold',            t.accent);
+if (t.text)      r.setProperty('--text-dark',       t.text);
 
-  // Müzik URL'ini kaydet — enterSite → playBirthday'de kullanılacak
-  window.SITE.customMusicUrl = t.birthdayMusicUrl || null;
-  // 31 Mart özel müziği
-  window.SITE.birthdaySpecialMusicUrl = t.birthdaySpecialMusicUrl || null;
+// Müzik URL'ini kaydet — enterSite → playBirthday'de kullanılacak
+window.SITE.customMusicUrl = t.birthdayMusicUrl || null;
 
-  // Arka planı temizle
-  document.querySelectorAll('.bg-collage,.bg-slideshow').forEach(el => el.remove());
-  document.body.style.backgroundImage = 'none';
-  document.body.style.backgroundSize  = '';
-  document.body.style.backgroundAttachment = '';
+// Arka planı temizle
+document.querySelectorAll('.bg-collage,.bg-slideshow').forEach(el => el.remove());
+document.body.style.backgroundImage = 'none';
+document.body.style.backgroundSize  = '';
+document.body.style.backgroundAttachment = '';
 
-  if (t.bgType === 'photo' && t.bgImage) {
-    document.body.style.backgroundImage = `linear-gradient(rgba(0,0,0,${t.bgOverlay||0}),rgba(0,0,0,${t.bgOverlay||0})),url(${t.bgImage})`;
-    document.body.style.backgroundSize = 'cover';
-    document.body.style.backgroundPosition = 'center';
-    document.body.style.backgroundAttachment = 'fixed';
-  } else if (t.bgType === 'gradient') {
-    document.body.style.backgroundImage = `linear-gradient(${t.gradientDir||'135deg'},${t.bg||'#F5EDE3'},${t.gradientColor2||t.secondary||'#8B3045'})`;
-  } else if (t.bgType === 'pattern') {
-    const bg = t.bg || '#F5EDE3', sc = t.secondary || '#6B1E2E';
-    const pats = {
-      stripes:  `repeating-linear-gradient(45deg,${bg} 0,${bg} 10px,${sc}44 10px,${sc}44 20px)`,
-      dots:     `radial-gradient(circle,${sc}66 1px,transparent 1px)`,
-      grid:     `linear-gradient(${sc}33 1px,transparent 1px),linear-gradient(90deg,${sc}33 1px,transparent 1px)`,
-      waves:    `repeating-linear-gradient(0deg,${bg} 0,${bg} 8px,${sc}33 8px,${sc}33 16px)`,
-      diamond:  `repeating-linear-gradient(45deg,${sc}33 0,${sc}33 2px,transparent 2px,transparent 50%)`
-    };
-    document.body.style.backgroundImage = pats[t.patternType||'stripes'];
-    if (t.patternType === 'dots')    document.body.style.backgroundSize = '20px 20px';
-    else if (t.patternType === 'grid')    document.body.style.backgroundSize = '24px 24px';
-    else if (t.patternType === 'diamond') document.body.style.backgroundSize = '16px 16px';
-  } else if (t.bgType === 'collage' && t.collageImages && t.collageImages.length) {
-    const div = document.createElement('div'); div.className = 'bg-collage';
-    const cols = t.collageCols || 3;
-    const grid = document.createElement('div'); grid.className = 'bg-collage-grid';
-    grid.style.gridTemplateColumns = `repeat(${cols},1fr)`;
-    grid.style.gridTemplateRows = `repeat(${Math.ceil(t.collageImages.length/cols)},1fr)`;
-    t.collageImages.forEach(src => { const img = document.createElement('img'); img.src = src; img.loading = 'lazy'; grid.appendChild(img); });
-    const ov = document.createElement('div'); ov.className = 'bg-overlay';
-    ov.style.background = `rgba(0,0,0,${t.bgOverlay||0.3})`;
-    div.appendChild(grid); div.appendChild(ov);
-    document.body.insertBefore(div, document.body.firstChild);
-  } else if (t.bgType === 'slideshow' && t.slideshowImages && t.slideshowImages.length) {
-    const div = document.createElement('div'); div.className = 'bg-slideshow';
-    t.slideshowImages.forEach((src, i) => {
-      const s = document.createElement('div');
-      s.className = 'bg-slide' + (i === 0 ? ' active' : '');
-      s.style.backgroundImage = `url(${src})`;
-      div.appendChild(s);
-    });
-    const ov = document.createElement('div'); ov.className = 'bg-overlay';
-    ov.style.background = `rgba(0,0,0,${t.bgOverlay||0.3})`;
-    div.appendChild(ov);
-    document.body.insertBefore(div, document.body.firstChild);
-    if (t.slideshowImages.length > 1) {
-      let cur = 0;
-      const slides = div.querySelectorAll('.bg-slide');
-      setInterval(() => {
-        slides[cur].classList.remove('active');
-        cur = (cur + 1) % slides.length;
-        slides[cur].classList.add('active');
-      }, t.slideshowInterval || 5000);
-    }
-  }
+if (t.bgType === 'photo' && t.bgImage) {
+document.body.style.backgroundImage = `linear-gradient(rgba(0,0,0,${t.bgOverlay||0}),rgba(0,0,0,${t.bgOverlay||0})),url(${t.bgImage})`;
+document.body.style.backgroundSize = 'cover';
+document.body.style.backgroundPosition = 'center';
+document.body.style.backgroundAttachment = 'fixed';
+} else if (t.bgType === 'gradient') {
+document.body.style.backgroundImage = `linear-gradient(${t.gradientDir||'135deg'},${t.bg||'#F5EDE3'},${t.gradientColor2||t.secondary||'#8B3045'})`;
+} else if (t.bgType === 'pattern') {
+const bg = t.bg || '#F5EDE3', sc = t.secondary || '#6B1E2E';
+const pats = {
+stripes:  `repeating-linear-gradient(45deg,${bg} 0,${bg} 10px,${sc}44 10px,${sc}44 20px)`,
+dots:     `radial-gradient(circle,${sc}66 1px,transparent 1px)`,
+grid:     `linear-gradient(${sc}33 1px,transparent 1px),linear-gradient(90deg,${sc}33 1px,transparent 1px)`,
+waves:    `repeating-linear-gradient(0deg,${bg} 0,${bg} 8px,${sc}33 8px,${sc}33 16px)`,
+diamond:  `repeating-linear-gradient(45deg,${sc}33 0,${sc}33 2px,transparent 2px,transparent 50%)`
+};
+document.body.style.backgroundImage = pats[t.patternType||'stripes'];
+if (t.patternType === 'dots')    document.body.style.backgroundSize = '20px 20px';
+else if (t.patternType === 'grid')    document.body.style.backgroundSize = '24px 24px';
+else if (t.patternType === 'diamond') document.body.style.backgroundSize = '16px 16px';
+} else if (t.bgType === 'collage' && t.collageImages && t.collageImages.length) {
+const div = document.createElement('div'); div.className = 'bg-collage';
+const cols = t.collageCols || 3;
+const grid = document.createElement('div'); grid.className = 'bg-collage-grid';
+grid.style.gridTemplateColumns = `repeat(${cols},1fr)`;
+grid.style.gridTemplateRows = `repeat(${Math.ceil(t.collageImages.length/cols)},1fr)`;
+t.collageImages.forEach(src => { const img = document.createElement('img'); img.src = src; img.loading = 'lazy'; grid.appendChild(img); });
+const ov = document.createElement('div'); ov.className = 'bg-overlay';
+ov.style.background = `rgba(0,0,0,${t.bgOverlay||0.3})`;
+div.appendChild(grid); div.appendChild(ov);
+document.body.insertBefore(div, document.body.firstChild);
+} else if (t.bgType === 'slideshow' && t.slideshowImages && t.slideshowImages.length) {
+const div = document.createElement('div'); div.className = 'bg-slideshow';
+t.slideshowImages.forEach((src, i) => {
+const s = document.createElement('div');
+s.className = 'bg-slide' + (i === 0 ? ' active' : '');
+s.style.backgroundImage = `url(${src})`;
+div.appendChild(s);
+});
+const ov = document.createElement('div'); ov.className = 'bg-overlay';
+ov.style.background = `rgba(0,0,0,${t.bgOverlay||0.3})`;
+div.appendChild(ov);
+document.body.insertBefore(div, document.body.firstChild);
+if (t.slideshowImages.length > 1) {
+let cur = 0;
+const slides = div.querySelectorAll('.bg-slide');
+setInterval(() => {
+slides[cur].classList.remove('active');
+cur = (cur + 1) % slides.length;
+slides[cur].classList.add('active');
+}, t.slideshowInterval || 5000);
+}
+}
 }
 
 // ─── LIMIT ───────────────────────────────────────────────────────
 async function getUserCount(col, name) {
-  try {
-    const { collection, query, where, getDocs } = fbMods;
-    const snap = await getDocs(query(collection(db, col), where('uploadedBy', '==', name)));
-    return snap.size;
-  } catch(_) { return 0; }
+try {
+const { collection, query, where, getDocs } = fbMods;
+const snap = await getDocs(query(collection(db, col), where('uploadedBy', '==', name)));
+return snap.size;
+} catch(_) { return 0; }
 }
 async function checkLimit(col, name, key) {
-  const count = await getUserCount(col, name);
-  return { ok: count < LIMITS[key], count, limit: LIMITS[key] };
+const count = await getUserCount(col, name);
+return { ok: count < LIMITS[key], count, limit: LIMITS[key] };
 }
 async function updateLimitInfo(colName, name, key, elId) {
-  const el = document.getElementById(elId); if (!el) return;
-  const count = await getUserCount(colName, name);
-  el.textContent = `${count}/${LIMITS[key]} kullandınız`;
+const el = document.getElementById(elId); if (!el) return;
+const count = await getUserCount(colName, name);
+el.textContent = `${count}/${LIMITS[key]} kullandınız`;
 }
 
 // ─── LOAD FONKSIYONLARI ──────────────────────────────────────────
 async function loadPhotos() {
-  const grid = document.getElementById('photoGrid');
-  try {
-    const { collection, query, where, orderBy, getDocs } = fbMods;
-    const snap = await getDocs(query(collection(db,'photos'), where('approved','==',true), orderBy('createdAt','desc')));
-    if (snap.empty) { grid.innerHTML = emptyHTML('📷','Henüz fotoğraf eklenmemiş'); return; }
-    const isY = window.SITE.currentRole === 'yaren', me = window.SITE.currentUser || '';
-    grid.innerHTML = snap.docs.map(d => {
-      const p = d.data(), canDl = isY || (p.uploadedBy === me);
-      return `<div class="photo-card" onclick="openLightbox('${p.url}','${esc(p.caption||'')}',${canDl},'${p.url}','${esc(p.caption||'foto')}')">
-        <img src="${cloudImg(p.url)}" alt="${esc(p.caption||'')}" loading="lazy">
-        <div class="photo-overlay"><span class="photo-caption">${esc(p.caption||'')}</span></div>
-        ${canDl ? `<button class="photo-dl" onclick="event.stopPropagation();dlFile('${p.url}','${esc(p.caption||'foto')}')">⬇</button>` : ''}
-      </div>`;
-    }).join('');
-  } catch(e) { grid.innerHTML = `<div class="empty-state"><p class="empty-text">Hata: ${esc(e.message)}</p></div>`; }
+const grid = document.getElementById('photoGrid');
+try {
+const { collection, query, where, orderBy, getDocs } = fbMods;
+const snap = await getDocs(query(collection(db,'photos'), where('approved','==',true), orderBy('createdAt','desc')));
+if (snap.empty) { grid.innerHTML = emptyHTML('📷','Henüz fotoğraf eklenmemiş'); return; }
+const isY = window.SITE.currentRole === 'yaren', me = window.SITE.currentUser || '';
+grid.innerHTML = snap.docs.map(d => {
+const p = d.data(), canDl = isY || (p.uploadedBy === me);
+return `<div class="photo-card" onclick="openLightbox('${p.url}','${esc(p.caption||'')}',${canDl},'${p.url}','${esc(p.caption||'foto')}')">
+       <img src="${cloudImg(p.url)}" alt="${esc(p.caption||'')}" loading="lazy">
+       <div class="photo-overlay"><span class="photo-caption">${esc(p.caption||'')}</span></div>
+       ${canDl ? `<button class="photo-dl" onclick="event.stopPropagation();dlFile('${p.url}','${esc(p.caption||'foto')}')">⬇</button>` : ''}
+     </div>`;
+}).join('');
+} catch(e) { grid.innerHTML = `<div class="empty-state"><p class="empty-text">Hata: ${esc(e.message)}</p></div>`; }
 }
 
 async function loadVideos() {
-  const grid = document.getElementById('videoGrid');
-  try {
-    const { collection, query, where, orderBy, getDocs } = fbMods;
-    const snap = await getDocs(query(collection(db,'videos'), where('approved','==',true), orderBy('createdAt','desc')));
-    if (snap.empty) { grid.innerHTML = `<div style="grid-column:1/-1">${emptyHTML('🎬','Henüz video eklenmemiş')}</div>`; return; }
-    const isY = window.SITE.currentRole === 'yaren', me = window.SITE.currentUser || '';
-    grid.innerHTML = snap.docs.map(d => {
-      const v = d.data(), canDl = isY || (v.uploadedBy === me);
-      return `<div class="video-card">
-        <video controls preload="metadata" playsinline><source src="${v.url}"></video>
-        <div class="video-info"><p class="video-title">${esc(v.title||'Video')}</p>
-        ${canDl ? `<button class="dl-btn" onclick="dlFile('${v.url}','${esc(v.title||'video')}')">⬇</button>` : ''}
-        </div></div>`;
-    }).join('');
-  } catch(e) { grid.innerHTML = `<div style="grid-column:1/-1"><div class="empty-state"><p class="empty-text">Hata: ${esc(e.message)}</p></div></div>`; }
+const grid = document.getElementById('videoGrid');
+try {
+const { collection, query, where, orderBy, getDocs } = fbMods;
+const snap = await getDocs(query(collection(db,'videos'), where('approved','==',true), orderBy('createdAt','desc')));
+if (snap.empty) { grid.innerHTML = `<div style="grid-column:1/-1">${emptyHTML('🎬','Henüz video eklenmemiş')}</div>`; return; }
+const isY = window.SITE.currentRole === 'yaren', me = window.SITE.currentUser || '';
+grid.innerHTML = snap.docs.map(d => {
+const v = d.data(), canDl = isY || (v.uploadedBy === me);
+return `<div class="video-card">
+       <video controls preload="metadata" playsinline><source src="${v.url}"></video>
+       <div class="video-info"><p class="video-title">${esc(v.title||'Video')}</p>
+       ${canDl ? `<button class="dl-btn" onclick="dlFile('${v.url}','${esc(v.title||'video')}')">⬇</button>` : ''}
+       </div></div>`;
+}).join('');
+} catch(e) { grid.innerHTML = `<div style="grid-column:1/-1"><div class="empty-state"><p class="empty-text">Hata: ${esc(e.message)}</p></div></div>`; }
 }
 
 async function loadAudio() {
-  const list = document.getElementById('audioList');
-  try {
-    const { collection, query, where, orderBy, getDocs } = fbMods;
-    const snap = await getDocs(query(collection(db,'audios'), where('approved','==',true), orderBy('createdAt','desc')));
-    if (snap.empty) { list.innerHTML = emptyHTML('🎵','Henüz ses kaydı eklenmemiş'); return; }
-    const isY = window.SITE.currentRole === 'yaren', me = window.SITE.currentUser || '';
-    list.innerHTML = snap.docs.map(d => {
-      const a = d.data(), canDl = isY || (a.uploadedBy === me);
-      return `<div class="audio-card">
-        <div class="audio-icon">♪</div>
-        <div class="audio-info"><p class="audio-title">${esc(a.title||'Ses')}</p><p class="audio-dur">${a.duration||''}</p></div>
-        <audio controls playsinline style="flex:1;min-width:0;height:32px;"><source src="${a.url}"></audio>
-        ${canDl ? `<button class="dl-btn" onclick="dlFile('${a.url}','${esc(a.title||'ses')}')">⬇</button>` : ''}
-      </div>`;
-    }).join('');
-  } catch(e) { list.innerHTML = `<div class="empty-state"><p class="empty-text">Hata: ${esc(e.message)}</p></div>`; }
+const list = document.getElementById('audioList');
+try {
+const { collection, query, where, orderBy, getDocs } = fbMods;
+const snap = await getDocs(query(collection(db,'audios'), where('approved','==',true), orderBy('createdAt','desc')));
+if (snap.empty) { list.innerHTML = emptyHTML('🎵','Henüz ses kaydı eklenmemiş'); return; }
+const isY = window.SITE.currentRole === 'yaren', me = window.SITE.currentUser || '';
+list.innerHTML = snap.docs.map(d => {
+const a = d.data(), canDl = isY || (a.uploadedBy === me);
+return `<div class="audio-card">
+       <div class="audio-icon">♪</div>
+       <div class="audio-info"><p class="audio-title">${esc(a.title||'Ses')}</p><p class="audio-dur">${a.duration||''}</p></div>
+       <audio controls playsinline style="flex:1;min-width:0;height:32px;"><source src="${a.url}"></audio>
+       ${canDl ? `<button class="dl-btn" onclick="dlFile('${a.url}','${esc(a.title||'ses')}')">⬇</button>` : ''}
+     </div>`;
+}).join('');
+} catch(e) { list.innerHTML = `<div class="empty-state"><p class="empty-text">Hata: ${esc(e.message)}</p></div>`; }
 }
 
 async function loadMemories() {
-  const el = document.getElementById('timeline');
-  try {
-    const { collection, query, where, orderBy, getDocs } = fbMods;
-    const snap = await getDocs(query(collection(db,'memories'), where('approved','==',true), orderBy('createdAt','asc')));
-    if (snap.empty) { el.innerHTML = emptyHTML('✨','Anılar yakında eklenecek'); return; }
-    const isY = window.SITE.currentRole === 'yaren';
-    el.innerHTML = snap.docs.map((d, i) => {
-      const m = d.data(), isEven = i % 2 === 0;
-      const dlBtns = isY ? `<div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;">
-        ${m.img ? `<button onclick="event.stopPropagation();dlFile('${m.img}','${esc(m.title)}')" style="background:rgba(107,30,46,.08);border:1px solid rgba(107,30,46,.2);border-radius:8px;color:var(--bordo);font-size:.63rem;padding:7px 14px;cursor:pointer;">⬇ Fotoğraf</button>` : ''}
-        <button onclick="event.stopPropagation();dlText('${esc(m.title)}','${esc(m.date)}\\n\\n${esc(m.text||'')}')" style="background:rgba(107,30,46,.08);border:1px solid rgba(107,30,46,.2);border-radius:8px;color:var(--bordo);font-size:.63rem;padding:7px 14px;cursor:pointer;">⬇ Metin</button>
-      </div>` : '';
-      const content = `<div class="tl-content" onclick="toggleTl(this)">
-        <div class="tl-header"><div class="tl-header-left"><span class="tl-date">${esc(m.date)}</span><h3 class="tl-title">${esc(m.title)}</h3></div><span class="tl-chevron">▼</span></div>
-        <div class="tl-body"><p class="tl-text">${esc(m.text||'')}</p>${m.img ? `<img src="${cloudImg(m.img)}" class="tl-img" alt="" loading="lazy" onclick="openLightbox('${m.img}','${esc(m.title)}',${window.SITE&&window.SITE.currentRole==='yaren'},'${m.img}','${esc(m.title)}')">` : ''}${m.videos&&m.videos.length ? m.videos.map(v=>`<video src="${v}" controls playsinline style="width:100%;border-radius:8px;margin-top:8px;max-height:200px;"></video>`).join('') : ''}${dlBtns}</div>
-      </div>`;
-      return `<div class="timeline-item fade-in-up visible">
-        <div class="${isEven?'tl-left':'tl-empty'}">${isEven?content:''}</div>
-        <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
-        <div class="${isEven?'tl-empty':'tl-right'}">${!isEven?content:''}</div>
-      </div>`;
-    }).join('');
-  } catch(e) { el.innerHTML = `<div class="empty-state"><p class="empty-text">Hata: ${esc(e.message)}</p></div>`; }
+const el = document.getElementById('timeline');
+try {
+const { collection, query, where, orderBy, getDocs } = fbMods;
+const snap = await getDocs(query(collection(db,'memories'), where('approved','==',true), orderBy('createdAt','asc')));
+if (snap.empty) { el.innerHTML = emptyHTML('✨','Anılar yakında eklenecek'); return; }
+const isY = window.SITE.currentRole === 'yaren';
+el.innerHTML = snap.docs.map((d, i) => {
+const m = d.data(), isEven = i % 2 === 0;
+const dlBtns = isY ? `<div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;">
+       ${m.img ? `<button onclick="event.stopPropagation();dlFile('${m.img}','${esc(m.title)}')" style="background:rgba(107,30,46,.08);border:1px solid rgba(107,30,46,.2);border-radius:8px;color:var(--bordo);font-size:.63rem;padding:7px 14px;cursor:pointer;">⬇ Fotoğraf</button>` : ''}
+       <button onclick="event.stopPropagation();dlText('${esc(m.title)}','${esc(m.date)}\\n\\n${esc(m.text||'')}')" style="background:rgba(107,30,46,.08);border:1px solid rgba(107,30,46,.2);border-radius:8px;color:var(--bordo);font-size:.63rem;padding:7px 14px;cursor:pointer;">⬇ Metin</button>
+     </div>` : '';
+const content = `<div class="tl-content" onclick="toggleTl(this)">
+       <div class="tl-header"><div class="tl-header-left"><span class="tl-date">${esc(m.date)}</span><h3 class="tl-title">${esc(m.title)}</h3></div><span class="tl-chevron">▼</span></div>
+       <div class="tl-body"><p class="tl-text">${esc(m.text||'')}</p>${m.img ? `<img src="${cloudImg(m.img)}" class="tl-img" alt="" loading="lazy" onclick="openLightbox('${m.img}','${esc(m.title)}',${window.SITE&&window.SITE.currentRole==='yaren'},'${m.img}','${esc(m.title)}')">` : ''}${m.videos&&m.videos.length ? m.videos.map(v=>`<video src="${v}" controls playsinline style="width:100%;border-radius:8px;margin-top:8px;max-height:200px;"></video>`).join('') : ''}${dlBtns}</div>
+     </div>`;
+return `<div class="timeline-item fade-in-up visible">
+       <div class="${isEven?'tl-left':'tl-empty'}">${isEven?content:''}</div>
+       <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
+       <div class="${isEven?'tl-empty':'tl-right'}">${!isEven?content:''}</div>
+     </div>`;
+}).join('');
+} catch(e) { el.innerHTML = `<div class="empty-state"><p class="empty-text">Hata: ${esc(e.message)}</p></div>`; }
 }
 
 async function loadMessages() {
-  const grid = document.getElementById('messagesGrid');
-  try {
-    const { collection, query, where, orderBy, getDocs } = fbMods;
-    const snap = await getDocs(query(collection(db,'messages'), where('approved','==',true), orderBy('createdAt','desc')));
-    if (snap.empty) { grid.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:60px;color:var(--text-light);font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.1rem;">Henüz tebrik yok — ilk tebriği sen bırak! 🎂</div>`; return; }
-    grid.innerHTML = snap.docs.map(d => {
-      const m = d.data();
-      const date = m.createdAt?.toDate?.()?.toLocaleDateString('tr-TR',{day:'numeric',month:'long',year:'numeric'}) || '';
-      const preview = (m.text||'').substring(0,30) + (m.text.length>30?'...':'');
-      return `<div class="message-card" onclick="toggleMsg(this)">
-        <div class="msg-card-header"><span class="msg-author">${esc(m.name)}</span><span class="msg-preview">${esc(preview)}</span><span class="msg-chevron">▼</span></div>
-        <div class="msg-body"><p class="msg-text">"${esc(m.text)}"</p><span class="msg-date">${date}</span></div>
-      </div>`;
-    }).join('');
-  } catch(_) {}
+const grid = document.getElementById('messagesGrid');
+try {
+const { collection, query, where, orderBy, getDocs } = fbMods;
+const snap = await getDocs(query(collection(db,'messages'), where('approved','==',true), orderBy('createdAt','desc')));
+if (snap.empty) { grid.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:60px;color:var(--text-light);font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.1rem;">Henüz tebrik yok — ilk tebriği sen bırak! 🎂</div>`; return; }
+grid.innerHTML = snap.docs.map(d => {
+const m = d.data();
+const date = m.createdAt?.toDate?.()?.toLocaleDateString('tr-TR',{day:'numeric',month:'long',year:'numeric'}) || '';
+const preview = (m.text||'').substring(0,30) + (m.text.length>30?'...':'');
+return `<div class="message-card" onclick="toggleMsg(this)">
+       <div class="msg-card-header"><span class="msg-author">${esc(m.name)}</span><span class="msg-preview">${esc(preview)}</span><span class="msg-chevron">▼</span></div>
+       <div class="msg-body"><p class="msg-text">"${esc(m.text)}"</p><span class="msg-date">${date}</span></div>
+     </div>`;
+}).join('');
+} catch(_) {}
 }
 
 async function loadLetters() {
-  const cont = document.getElementById('lettersContainer');
-  try {
-    const { collection, query, orderBy, getDocs } = fbMods;
-    const snap = await getDocs(query(collection(db,'letters'), orderBy('createdAt','desc')));
-    if (snap.empty) { cont.innerHTML = `<p style="text-align:center;font-family:'Cormorant Garamond',serif;font-style:italic;color:rgba(245,237,227,.45);font-size:1.05rem;">Henüz mektup yok 🌸</p>`; return; }
-    cont.innerHTML = snap.docs.map(d => {
-      const l = d.data();
-      const date = l.createdAt?.toDate?.()?.toLocaleDateString('tr-TR',{day:'numeric',month:'long',year:'numeric'}) || '';
-      const preview = (l.message||'').substring(0,40) + (l.message.length>40?'...':'');
-      return `<div class="letter-card" onclick="toggleLetter(this)">
-        <div class="letter-card-header"><span class="letter-card-from">${esc(l.from)}</span><span class="letter-card-preview">${esc(preview)}</span><span class="letter-card-chevron">▼</span></div>
-        <div class="letter-card-body">
-          <p class="letter-card-text">"${esc(l.message)}"</p>
-          <span class="letter-card-date">${date}</span>
-          <button class="letter-dl-btn" onclick="event.stopPropagation();dlText('${esc(l.from)} - Mektup','${esc(l.message)}')">⬇ İndir</button>
-        </div>
-      </div>`;
-    }).join('');
-  } catch(_) {}
+const cont = document.getElementById('lettersContainer');
+try {
+const { collection, query, orderBy, getDocs } = fbMods;
+const snap = await getDocs(query(collection(db,'letters'), orderBy('createdAt','desc')));
+if (snap.empty) { cont.innerHTML = `<p style="text-align:center;font-family:'Cormorant Garamond',serif;font-style:italic;color:rgba(245,237,227,.45);font-size:1.05rem;">Henüz mektup yok 🌸</p>`; return; }
+cont.innerHTML = snap.docs.map(d => {
+const l = d.data();
+const date = l.createdAt?.toDate?.()?.toLocaleDateString('tr-TR',{day:'numeric',month:'long',year:'numeric'}) || '';
+const preview = (l.message||'').substring(0,40) + (l.message.length>40?'...':'');
+return `<div class="letter-card" onclick="toggleLetter(this)">
+       <div class="letter-card-header"><span class="letter-card-from">${esc(l.from)}</span><span class="letter-card-preview">${esc(preview)}</span><span class="letter-card-chevron">▼</span></div>
+       <div class="letter-card-body">
+         <p class="letter-card-text">"${esc(l.message)}"</p>
+         <span class="letter-card-date">${date}</span>
+         <button class="letter-dl-btn" onclick="event.stopPropagation();dlText('${esc(l.from)} - Mektup','${esc(l.message)}')">⬇ İndir</button>
+       </div>
+     </div>`;
+}).join('');
+} catch(_) {}
 }
 
 // ─── UPLOADS ─────────────────────────────────────────────────────
 window.uploadPhotos = async function(inp) {
-  const name = window.SITE.currentUser || '';
-  const { ok, limit, count } = await checkLimit('photos', name, 'photo');
-  if (!ok) { showToast(`Fotoğraf limitine ulaştınız (${limit})`); return; }
-  const caption = document.getElementById('upPhotoCaption').value.trim();
-  const files = Array.from(inp.files).slice(0, limit - count);
-  for (let i = 0; i < files.length; i++) {
-    try {
-      document.getElementById('upPhotoTxt').textContent = `${i+1}/${files.length}`;
-      const r = await toCloud(files[i], 'upPhotoBar', 'upPhotoTxt', 'upPhotoProgress');
-      const { collection, addDoc, serverTimestamp } = fbMods;
-      await addDoc(collection(db,'photos'), {url:r.secure_url, publicId:r.public_id, caption:caption||files[i].name.replace(/\.[^.]+$/,''), uploadedBy:name, approved:false, createdAt:serverTimestamp()});
-      showToast(`✓ ${i+1}/${files.length} gönderildi`);
-    } catch(e) { showToast('Hata: ' + e.message); }
-  }
-  inp.value = ''; document.getElementById('upPhotoCaption').value = '';
-  updateLimitInfo('photos', name, 'photo', 'photoLimitInfo');
+const name = window.SITE.currentUser || '';
+const { ok, limit, count } = await checkLimit('photos', name, 'photo');
+if (!ok) { showToast(`Fotoğraf limitine ulaştınız (${limit})`); return; }
+const caption = document.getElementById('upPhotoCaption').value.trim();
+const files = Array.from(inp.files).slice(0, limit - count);
+for (let i = 0; i < files.length; i++) {
+try {
+document.getElementById('upPhotoTxt').textContent = `${i+1}/${files.length}`;
+const r = await toCloud(files[i], 'upPhotoBar', 'upPhotoTxt', 'upPhotoProgress');
+const { collection, addDoc, serverTimestamp } = fbMods;
+await addDoc(collection(db,'photos'), {url:r.secure_url, publicId:r.public_id, caption:caption||files[i].name.replace(/\.[^.]+$/,''), uploadedBy:name, approved:false, createdAt:serverTimestamp()});
+showToast(`✓ ${i+1}/${files.length} gönderildi`);
+} catch(e) { showToast('Hata: ' + e.message); }
+}
+inp.value = ''; document.getElementById('upPhotoCaption').value = '';
+updateLimitInfo('photos', name, 'photo', 'photoLimitInfo');
 };
 
 window.uploadVideo = async function(inp) {
-  const name = window.SITE.currentUser || '';
-  const { ok, limit } = await checkLimit('videos', name, 'video');
-  if (!ok) { showToast(`Video limitine ulaştınız (${limit})`); return; }
-  const file = inp.files[0]; if (!file) return;
-  const title = document.getElementById('upVideoTitle').value.trim() || file.name.replace(/\.[^.]+$/,'');
-  try {
-    const r = await toCloud(file, 'upVideoBar', 'upVideoTxt', 'upVideoProgress');
-    const { collection, addDoc, serverTimestamp } = fbMods;
-    await addDoc(collection(db,'videos'), {url:r.secure_url, publicId:r.public_id, title, uploadedBy:name, approved:false, duration:r.duration?fmt(r.duration):'', createdAt:serverTimestamp()});
-    inp.value = ''; document.getElementById('upVideoTitle').value = '';
-    showToast('✓ Video gönderildi');
-    updateLimitInfo('videos', name, 'video', 'videoLimitInfo');
-  } catch(e) { showToast('Hata: ' + e.message); }
+const name = window.SITE.currentUser || '';
+const { ok, limit } = await checkLimit('videos', name, 'video');
+if (!ok) { showToast(`Video limitine ulaştınız (${limit})`); return; }
+const file = inp.files[0]; if (!file) return;
+const title = document.getElementById('upVideoTitle').value.trim() || file.name.replace(/\.[^.]+$/,'');
+try {
+const r = await toCloud(file, 'upVideoBar', 'upVideoTxt', 'upVideoProgress');
+const { collection, addDoc, serverTimestamp } = fbMods;
+await addDoc(collection(db,'videos'), {url:r.secure_url, publicId:r.public_id, title, uploadedBy:name, approved:false, duration:r.duration?fmt(r.duration):'', createdAt:serverTimestamp()});
+inp.value = ''; document.getElementById('upVideoTitle').value = '';
+showToast('✓ Video gönderildi');
+updateLimitInfo('videos', name, 'video', 'videoLimitInfo');
+} catch(e) { showToast('Hata: ' + e.message); }
 };
 
 window.uploadAudio = async function(inp) {
-  const name = window.SITE.currentUser || '';
-  const { ok, limit } = await checkLimit('audios', name, 'audio');
-  if (!ok) { showToast(`Ses limitine ulaştınız (${limit})`); return; }
-  const file = inp.files[0]; if (!file) return;
-  const title = document.getElementById('upAudioTitle').value.trim() || file.name.replace(/\.[^.]+$/,'');
-  const duration = document.getElementById('upAudioDur').value.trim();
-  try {
-    const r = await toCloud(file, 'upAudioBar', 'upAudioTxt', 'upAudioProgress');
-    const { collection, addDoc, serverTimestamp } = fbMods;
-    await addDoc(collection(db,'audios'), {url:r.secure_url, publicId:r.public_id, title, duration:duration||(r.duration?fmt(r.duration):''), uploadedBy:name, approved:false, createdAt:serverTimestamp()});
-    inp.value = ''; document.getElementById('upAudioTitle').value = ''; document.getElementById('upAudioDur').value = '';
-    showToast('✓ Ses kaydı gönderildi');
-    updateLimitInfo('audios', name, 'audio', 'audioLimitInfo');
-  } catch(e) { showToast('Hata: ' + e.message); }
+const name = window.SITE.currentUser || '';
+const { ok, limit } = await checkLimit('audios', name, 'audio');
+if (!ok) { showToast(`Ses limitine ulaştınız (${limit})`); return; }
+const file = inp.files[0]; if (!file) return;
+const title = document.getElementById('upAudioTitle').value.trim() || file.name.replace(/\.[^.]+$/,'');
+const duration = document.getElementById('upAudioDur').value.trim();
+try {
+const r = await toCloud(file, 'upAudioBar', 'upAudioTxt', 'upAudioProgress');
+const { collection, addDoc, serverTimestamp } = fbMods;
+await addDoc(collection(db,'audios'), {url:r.secure_url, publicId:r.public_id, title, duration:duration||(r.duration?fmt(r.duration):''), uploadedBy:name, approved:false, createdAt:serverTimestamp()});
+inp.value = ''; document.getElementById('upAudioTitle').value = ''; document.getElementById('upAudioDur').value = '';
+showToast('✓ Ses kaydı gönderildi');
+updateLimitInfo('audios', name, 'audio', 'audioLimitInfo');
+} catch(e) { showToast('Hata: ' + e.message); }
 };
 
 window.uploadAniPhoto = async function(inp) {
-  const file = inp.files[0]; if (!file) return;
-  try {
-    showToast('Fotoğraf yükleniyor...');
-    const r = await toCloud(file, 'upAniPhotoBar', 'upAniPhotoTxt', 'upAniPhotoProgress');
-    window.SITE.aniPhotoUrl = r.secure_url;
-    document.getElementById('aniPhotoPreview').innerHTML = `<img src="${r.secure_url}" style="max-height:100px;border-radius:8px;object-fit:cover;margin-top:4px;">`;
-    showToast('✓ Fotoğraf hazır');
-  } catch(e) { showToast('Fotoğraf yüklenemedi: ' + e.message); }
+const file = inp.files[0]; if (!file) return;
+try {
+showToast('Fotoğraf yükleniyor...');
+const r = await toCloud(file, 'upAniPhotoBar', 'upAniPhotoTxt', 'upAniPhotoProgress');
+window.SITE.aniPhotoUrl = r.secure_url;
+document.getElementById('aniPhotoPreview').innerHTML = `<img src="${r.secure_url}" style="max-height:100px;border-radius:8px;object-fit:cover;margin-top:4px;">`;
+showToast('✓ Fotoğraf hazır');
+} catch(e) { showToast('Fotoğraf yüklenemedi: ' + e.message); }
 };
 
 window.uploadAniVideo = async function(inp) {
-  const files = Array.from(inp.files).slice(0, 3);
-  if (!files.length) return;
-  if (!window.SITE.aniVideoUrl) window.SITE.aniVideoUrl = [];
-  if (window.SITE.aniVideoUrl.length >= 3) { showToast('En fazla 3 video ekleyebilirsiniz'); return; }
-  const remaining = 3 - window.SITE.aniVideoUrl.length;
-  const toUpload = files.slice(0, remaining);
-  for (let i = 0; i < toUpload.length; i++) {
-    try {
-      showToast(`Video ${i+1}/${toUpload.length} yükleniyor...`);
-      document.getElementById('upAniVideoTxt').textContent = `${i+1}/${toUpload.length} yükleniyor...`;
-      const r = await toCloud(toUpload[i], 'upAniVideoBar', 'upAniVideoTxt', 'upAniVideoProgress');
-      window.SITE.aniVideoUrl.push(r.secure_url);
-      const prev = document.getElementById('aniVideoPreview');
-      prev.innerHTML += `<video src="${r.secure_url}" style="max-height:80px;border-radius:8px;" controls></video>`;
-      showToast(`✓ Video ${i+1} hazır`);
-    } catch(e) { showToast('Video yüklenemedi: ' + e.message); }
-  }
-  inp.value = '';
+const files = Array.from(inp.files).slice(0, 3);
+if (!files.length) return;
+if (!window.SITE.aniVideoUrl) window.SITE.aniVideoUrl = [];
+if (window.SITE.aniVideoUrl.length >= 3) { showToast('En fazla 3 video ekleyebilirsiniz'); return; }
+const remaining = 3 - window.SITE.aniVideoUrl.length;
+const toUpload = files.slice(0, remaining);
+for (let i = 0; i < toUpload.length; i++) {
+try {
+showToast(`Video ${i+1}/${toUpload.length} yükleniyor...`);
+document.getElementById('upAniVideoTxt').textContent = `${i+1}/${toUpload.length} yükleniyor...`;
+const r = await toCloud(toUpload[i], 'upAniVideoBar', 'upAniVideoTxt', 'upAniVideoProgress');
+window.SITE.aniVideoUrl.push(r.secure_url);
+const prev = document.getElementById('aniVideoPreview');
+prev.innerHTML += `<video src="${r.secure_url}" style="max-height:80px;border-radius:8px;" controls></video>`;
+showToast(`✓ Video ${i+1} hazır`);
+} catch(e) { showToast('Video yüklenemedi: ' + e.message); }
+}
+inp.value = '';
 };
 
 window.uploadAni = async function() {
-  const name = window.SITE.currentUser || '';
-  const { ok, limit } = await checkLimit('memories', name, 'ani');
-  if (!ok) { showToast(`Anı limitine ulaştınız (${limit})`); return; }
-  const title = document.getElementById('upAniTitle').value.trim();
-  const dateVal = document.getElementById('upAniDate').value;
-  const dateDisplay = document.getElementById('upAniDateDisplay').value.trim();
-  const text = document.getElementById('upAniText').value.trim();
-  if (!title || !dateVal) { showToast('Başlık ve tarih zorunlu'); return; }
-  try {
-    const { collection, addDoc } = fbMods;
-    await addDoc(collection(db,'memories'), {title, date:dateDisplay||dateVal, text, img:window.SITE.aniPhotoUrl||null, videos:window.SITE.aniVideoUrl||[], uploadedBy:name, approved:false, createdAt:new Date(dateVal)});
-    document.getElementById('upAniTitle').value = '';
-    document.getElementById('upAniDate').value = '';
-    document.getElementById('upAniDateDisplay').value = '';
-    document.getElementById('upAniText').value = '';
-    document.getElementById('aniPhotoPreview').innerHTML = '';
-    document.getElementById('aniVideoPreview').innerHTML = '';
-    window.SITE.aniPhotoUrl = null;
-    window.SITE.aniVideoUrl = [];
-    showToast('✓ Anı gönderildi');
-    updateLimitInfo('memories', name, 'ani', 'aniLimitInfo');
-  } catch(e) { showToast('Hata: ' + e.message); }
+const name = window.SITE.currentUser || '';
+const { ok, limit } = await checkLimit('memories', name, 'ani');
+if (!ok) { showToast(`Anı limitine ulaştınız (${limit})`); return; }
+const title = document.getElementById('upAniTitle').value.trim();
+const dateVal = document.getElementById('upAniDate').value;
+const dateDisplay = document.getElementById('upAniDateDisplay').value.trim();
+const text = document.getElementById('upAniText').value.trim();
+if (!title || !dateVal) { showToast('Başlık ve tarih zorunlu'); return; }
+try {
+const { collection, addDoc } = fbMods;
+await addDoc(collection(db,'memories'), {title, date:dateDisplay||dateVal, text, img:window.SITE.aniPhotoUrl||null, videos:window.SITE.aniVideoUrl||[], uploadedBy:name, approved:false, createdAt:new Date(dateVal)});
+document.getElementById('upAniTitle').value = '';
+document.getElementById('upAniDate').value = '';
+document.getElementById('upAniDateDisplay').value = '';
+document.getElementById('upAniText').value = '';
+document.getElementById('aniPhotoPreview').innerHTML = '';
+document.getElementById('aniVideoPreview').innerHTML = '';
+window.SITE.aniPhotoUrl = null;
+window.SITE.aniVideoUrl = [];
+showToast('✓ Anı gönderildi');
+updateLimitInfo('memories', name, 'ani', 'aniLimitInfo');
+} catch(e) { showToast('Hata: ' + e.message); }
 };
 
 window.sendLetter = async function() {
-  const message = document.getElementById('letterMsg').value.trim();
-  const from = window.SITE.currentUser || 'Bilinmeyen';
-  if (!message || message.length < 5) { showToast('Mektup çok kısa ✍️'); return; }
-  try {
-    const { collection, addDoc, serverTimestamp } = fbMods;
-    await addDoc(collection(db,'letters'), {from, message, createdAt:serverTimestamp()});
-    document.getElementById('letterWriteForm').style.display = 'none';
-    document.getElementById('letterAlready').classList.add('show');
-    localStorage.setItem('ya_letter_' + from, '1');
-    playSuccess(); showToast('Mektup gönderildi 🌸');
-  } catch(e) { showToast('Gönderilemedi: ' + e.message); }
+const message = document.getElementById('letterMsg').value.trim();
+const from = window.SITE.currentUser || 'Bilinmeyen';
+if (!message || message.length < 5) { showToast('Mektup çok kısa ✍️'); return; }
+try {
+const { collection, addDoc, serverTimestamp } = fbMods;
+await addDoc(collection(db,'letters'), {from, message, createdAt:serverTimestamp()});
+document.getElementById('letterWriteForm').style.display = 'none';
+document.getElementById('letterAlready').classList.add('show');
+localStorage.setItem('ya_letter_' + from, '1');
+playSuccess(); showToast('Mektup gönderildi 🌸');
+} catch(e) { showToast('Gönderilemedi: ' + e.message); }
 };
 
 window.submitMessage = async function() {
-  const text = document.getElementById('msgText').value.trim();
-  const name = window.SITE.currentUser || 'Bilinmeyen';
-  if (!text || text.length < 3) { showToast('Mesaj çok kısa'); return; }
-  try {
-    const { collection, addDoc, serverTimestamp } = fbMods;
-    await addDoc(collection(db,'messages'), {name, text, approved:false, createdAt:serverTimestamp()});
-    document.getElementById('msgForm').style.display = 'none';
-    document.getElementById('msgAlready').classList.add('show');
-    localStorage.setItem('ya_msg_' + name, '1');
-    playSuccess(); showToast('Tebriğin gönderildi! 🎉');
-  } catch(e) { showToast('Gönderilemedi: ' + e.message); }
+const text = document.getElementById('msgText').value.trim();
+const name = window.SITE.currentUser || 'Bilinmeyen';
+if (!text || text.length < 3) { showToast('Mesaj çok kısa'); return; }
+try {
+const { collection, addDoc, serverTimestamp } = fbMods;
+await addDoc(collection(db,'messages'), {name, text, approved:false, createdAt:serverTimestamp()});
+document.getElementById('msgForm').style.display = 'none';
+document.getElementById('msgAlready').classList.add('show');
+localStorage.setItem('ya_msg_' + name, '1');
+playSuccess(); showToast('Tebriğin gönderildi! 🎉');
+} catch(e) { showToast('Gönderilemedi: ' + e.message); }
 };
 
 // ─── INIT ────────────────────────────────────────────────────────
 async function initSite(role, userName) {
-  await initFirebase();
-  // Önce tema yükle → müzik URL'i SITE.customMusicUrl'e yazılıyor
-  await loadThemeFromFirebase();
+await initFirebase();
+// Önce tema yükle → müzik URL'i SITE.customMusicUrl'e yazılıyor
+await loadThemeFromFirebase();
 
-  if (role === 'yaren') {
-    loadPhotos(); loadVideos(); loadAudio(); loadMemories(); loadMessages();
-    document.getElementById('lettersList').classList.add('visible');
-    loadLetters();
-    // Tema yüklendikten sonra müzik çal + konfeti
-    launchConfetti(); launchConfetti();
-    setTimeout(() => playBirthday(), 200);
-  } else {
-    loadPhotos(); loadVideos(); loadAudio(); loadMemories(); loadMessages();
-    document.getElementById('uploadPanel').style.display = 'block';
-    document.getElementById('letterWriteSection').style.display = 'block';
-    document.getElementById('msgFormWrap').style.display = 'block';
-    // Mektup daha önce gönderildi mi?
-    if (localStorage.getItem('ya_letter_' + userName)) {
-      document.getElementById('letterWriteForm').style.display = 'none';
-      document.getElementById('letterAlready').classList.add('show');
-    }
-    // Tebrik daha önce gönderildi mi?
-    if (localStorage.getItem('ya_msg_' + userName)) {
-      document.getElementById('msgForm').style.display = 'none';
-      document.getElementById('msgAlready').classList.add('show');
-    }
-    // Limit bilgilerini yükle
-    updateLimitInfo('photos',  userName, 'photo', 'photoLimitInfo');
-    updateLimitInfo('videos',  userName, 'video', 'videoLimitInfo');
-    updateLimitInfo('audios',  userName, 'audio', 'audioLimitInfo');
-    updateLimitInfo('memories',userName, 'ani',   'aniLimitInfo');
-  }
+if (role === 'yaren') {
+loadPhotos(); loadVideos(); loadAudio(); loadMemories(); loadMessages();
+document.getElementById('lettersList').classList.add('visible');
+loadLetters();
+// Tema yüklendikten sonra müzik çal + konfeti
+launchConfetti(); launchConfetti();
+setTimeout(() => playBirthday(), 200);
+} else {
+loadPhotos(); loadVideos(); loadAudio(); loadMemories(); loadMessages();
+document.getElementById('uploadPanel').style.display = 'block';
+document.getElementById('letterWriteSection').style.display = 'block';
+document.getElementById('msgFormWrap').style.display = 'block';
+// Mektup daha önce gönderildi mi?
+if (localStorage.getItem('ya_letter_' + userName)) {
+document.getElementById('letterWriteForm').style.display = 'none';
+document.getElementById('letterAlready').classList.add('show');
+}
+// Tebrik daha önce gönderildi mi?
+if (localStorage.getItem('ya_msg_' + userName)) {
+document.getElementById('msgForm').style.display = 'none';
+document.getElementById('msgAlready').classList.add('show');
+}
+// Limit bilgilerini yükle
+updateLimitInfo('photos',  userName, 'photo', 'photoLimitInfo');
+updateLimitInfo('videos',  userName, 'video', 'videoLimitInfo');
+updateLimitInfo('audios',  userName, 'audio', 'audioLimitInfo');
+updateLimitInfo('memories',userName, 'ani',   'aniLimitInfo');
+}
 }
 
 // ─── SPLASH ──────────────────────────────────────────────────────
 function showYarenVerify() { playClick(); document.getElementById('splashMain').style.display = 'none'; document.getElementById('yarenVerify').style.display = 'block'; setTimeout(() => document.getElementById('verifyInput').focus(), 200); }
 function showDigerLogin()  { playClick(); document.getElementById('splashMain').style.display = 'none'; document.getElementById('digerVerify').style.display = 'block'; setTimeout(() => document.getElementById('digerAd').focus(), 200); }
 function backToMain() {
-  ['yarenVerify','digerVerify'].forEach(id => document.getElementById(id).style.display = 'none');
-  document.getElementById('splashMain').style.display = 'block';
-  ['verifyErr','digerErr'].forEach(id => document.getElementById(id).classList.remove('show'));
-  ['verifyInput','digerAd','digerSoyad'].forEach(id => document.getElementById(id).value = '');
+['yarenVerify','digerVerify'].forEach(id => document.getElementById(id).style.display = 'none');
+document.getElementById('splashMain').style.display = 'block';
+['verifyErr','digerErr'].forEach(id => document.getElementById(id).classList.remove('show'));
+['verifyInput','digerAd','digerSoyad'].forEach(id => document.getElementById(id).value = '');
 }
 function checkYaren() {
-  const val = document.getElementById('verifyInput').value.trim();
-  if (/^(4[\/\-]?a|a)$/i.test(val.replace(/\s/g,''))) {
-    enterSite('yaren', 'Yaren');
-  } else {
-    document.getElementById('verifyErr').classList.add('show');
-    document.getElementById('verifyInput').value = '';
-    setTimeout(() => document.getElementById('verifyErr').classList.remove('show'), 3000);
-  }
+const val = document.getElementById('verifyInput').value.trim();
+if (val.trim() === '03312009') {
+enterSite('yaren', 'Yaren');
+} else {
+document.getElementById('verifyErr').classList.add('show');
+document.getElementById('verifyInput').value = '';
+setTimeout(() => document.getElementById('verifyErr').classList.remove('show'), 3000);
+}
 }
 function checkDiger() {
-  const ad = document.getElementById('digerAd').value.trim();
-  const soyad = document.getElementById('digerSoyad').value.trim();
-  if (!ad || !soyad || ad.length < 2 || soyad.length < 2) {
-    document.getElementById('digerErr').classList.add('show');
-    setTimeout(() => document.getElementById('digerErr').classList.remove('show'), 3000);
-    return;
-  }
-  enterSite('diger', ad + ' ' + soyad);
+const ad = document.getElementById('digerAd').value.trim();
+const soyad = document.getElementById('digerSoyad').value.trim();
+if (!ad || !soyad || ad.length < 2 || soyad.length < 2) {
+document.getElementById('digerErr').classList.add('show');
+setTimeout(() => document.getElementById('digerErr').classList.remove('show'), 3000);
+return;
+}
+enterSite('diger', ad + ' ' + soyad);
 }
 
 function enterSite(role, userName) {
-  playClick();
-  window.SITE.currentUser = userName;
-  window.SITE.currentRole = role;
-  window.SITE.entered = true;
-  const splash = document.getElementById('splash');
-  splash.style.transition = 'opacity .7s ease';
-  splash.style.opacity = '0';
-  setTimeout(async () => {
-    splash.style.display = 'none';
-    document.body.style.overflow = 'auto';
-    document.getElementById('mobileBadge').textContent = role === 'yaren' ? '🌸 Yaren' : '👋 ' + userName;
-    await initSite(role, userName);
-  }, 700);
+playClick();
+window.SITE.currentUser = userName;
+window.SITE.currentRole = role;
+window.SITE.entered = true;
+const splash = document.getElementById('splash');
+splash.style.transition = 'opacity .7s ease';
+splash.style.opacity = '0';
+setTimeout(async () => {
+splash.style.display = 'none';
+document.body.style.overflow = 'auto';
+document.getElementById('mobileBadge').textContent = role === 'yaren' ? '🌸 Yaren' : '👋 ' + userName;
+await initSite(role, userName);
+}, 700);
 }
 
 // Sayfa kapatma uyarısı
 window.addEventListener('beforeunload', function(e) {
-  if (!window.SITE.entered) return;
-  e.preventDefault(); e.returnValue = 'Siteden çıkmak istediğinize emin misiniz?';
-  return e.returnValue;
+if (!window.SITE.entered) return;
+e.preventDefault(); e.returnValue = 'Siteden çıkmak istediğinize emin misiniz?';
+return e.returnValue;
 });
 
 // ─── SES ─────────────────────────────────────────────────────────
 let audioCtx;
 function getACtx() { if (!audioCtx) audioCtx = new(window.AudioContext||window.webkitAudioContext)(); return audioCtx; }
 function playClick() {
-  try { const c=getACtx(),o=c.createOscillator(),g=c.createGain(); o.connect(g); g.connect(c.destination); o.frequency.setValueAtTime(660,c.currentTime); o.frequency.exponentialRampToValueAtTime(330,c.currentTime+.1); g.gain.setValueAtTime(.06,c.currentTime); g.gain.exponentialRampToValueAtTime(.001,c.currentTime+.15); o.start(); o.stop(c.currentTime+.15); } catch(_) {}
+try { const c=getACtx(),o=c.createOscillator(),g=c.createGain(); o.connect(g); g.connect(c.destination); o.frequency.setValueAtTime(660,c.currentTime); o.frequency.exponentialRampToValueAtTime(330,c.currentTime+.1); g.gain.setValueAtTime(.06,c.currentTime); g.gain.exponentialRampToValueAtTime(.001,c.currentTime+.15); o.start(); o.stop(c.currentTime+.15); } catch(_) {}
 }
 function playSuccess() {
-  try { const c=getACtx(); [523,659,784,1047].forEach((f,i) => { const o=c.createOscillator(),g=c.createGain(); o.connect(g); g.connect(c.destination); o.frequency.value=f; g.gain.setValueAtTime(.06,c.currentTime+i*.1); g.gain.exponentialRampToValueAtTime(.001,c.currentTime+i*.1+.2); o.start(c.currentTime+i*.1); o.stop(c.currentTime+i*.1+.2); }); } catch(_) {}
+try { const c=getACtx(); [523,659,784,1047].forEach((f,i) => { const o=c.createOscillator(),g=c.createGain(); o.connect(g); g.connect(c.destination); o.frequency.value=f; g.gain.setValueAtTime(.06,c.currentTime+i*.1); g.gain.exponentialRampToValueAtTime(.001,c.currentTime+i*.1+.2); o.start(c.currentTime+i*.1); o.stop(c.currentTime+i*.1+.2); }); } catch(_) {}
 }
 function playBirthday() {
-  // window.SITE.customMusicUrl — tema Firebase'den yüklendikten sonra set edildi
-  const url = window.SITE.customMusicUrl;
-  if (url) {
-    try {
-      const audio = new Audio(url);
-      audio.volume = 0.7;
-      audio.play().catch(() => playDefaultMelody());
-      return;
-    } catch(_) {}
-  }
-  playDefaultMelody();
+// window.SITE.customMusicUrl — tema Firebase'den yüklendikten sonra set edildi
+const url = window.SITE.customMusicUrl;
+if (url) {
+try {
+const audio = new Audio(url);
+audio.volume = 0.7;
+audio.play().catch(() => playDefaultMelody());
+return;
+} catch(_) {}
+}
+playDefaultMelody();
 }
 function playDefaultMelody() {
-  try {
-    const c = getACtx();
-    [[392,.3],[392,.15],[440,.45],[392,.45],[523,.45],[494,.9],[392,.3],[392,.15],[440,.45],[392,.45],[587,.45],[523,.9]]
-      .reduce((t,[f,d]) => { const o=c.createOscillator(),g=c.createGain(); o.connect(g); g.connect(c.destination); o.type='sine'; o.frequency.value=f; g.gain.setValueAtTime(0,t); g.gain.linearRampToValueAtTime(.1,t+.05); g.gain.exponentialRampToValueAtTime(.001,t+d-.05); o.start(t); o.stop(t+d); return t+d; }, c.currentTime+.5);
-  } catch(_) {}
-}
-
-// ─── 31 MART ÖZEL MÜZİĞİ ────────────────────────────────────────
-let _bdAudio = null; // 31 Mart müzik objesi — global
-
-function startBirthdaySpecialMusic() {
-  const url = window.SITE.birthdaySpecialMusicUrl;
-  if (!url) return;
-  try {
-    _bdAudio = new Audio(url);
-    _bdAudio.volume = 0.4; // Orta ses ile başla
-    _bdAudio.loop = false;
-    _bdAudio.play().catch(() => {});
-  } catch(_) {}
-}
-
-function fadeBirthdayMusicUp() {
-  // Müziği 0.4'ten 1.0'a 8 saniyede yükselt
-  if (!_bdAudio) return;
-  const start = _bdAudio.volume;
-  const end = 1.0;
-  const dur = 8000;
-  const steps = 80;
-  const inc = (end - start) / steps;
-  let step = 0;
-  const iv = setInterval(() => {
-    step++;
-    if (!_bdAudio) { clearInterval(iv); return; }
-    _bdAudio.volume = Math.min(end, start + inc * step);
-    if (step >= steps) clearInterval(iv);
-  }, dur / steps);
-}
-
-// Video/ses açılınca müziği kıs, kapanınca aç
-function attachMediaVolumeListeners() {
-  document.addEventListener('play', function(e) {
-    if (e.target.tagName === 'VIDEO' || e.target.tagName === 'AUDIO') {
-      if (_bdAudio && !_bdAudio.paused) {
-        _bdAudio._savedVol = _bdAudio.volume;
-        fadeVolume(_bdAudio, _bdAudio.volume, 0.08, 1000);
-      }
-    }
-  }, true);
-  document.addEventListener('pause', function(e) {
-    if (e.target.tagName === 'VIDEO' || e.target.tagName === 'AUDIO') {
-      if (_bdAudio && !_bdAudio.paused && _bdAudio._savedVol) {
-        fadeVolume(_bdAudio, _bdAudio.volume, _bdAudio._savedVol, 1000);
-      }
-    }
-  }, true);
-  document.addEventListener('ended', function(e) {
-    if (e.target.tagName === 'VIDEO' || e.target.tagName === 'AUDIO') {
-      if (_bdAudio && !_bdAudio.paused && _bdAudio._savedVol) {
-        fadeVolume(_bdAudio, _bdAudio.volume, _bdAudio._savedVol, 1000);
-      }
-    }
-  }, true);
-}
-
-function fadeVolume(audio, from, to, duration) {
-  const steps = 40;
-  const inc = (to - from) / steps;
-  let step = 0;
-  const iv = setInterval(() => {
-    step++;
-    audio.volume = Math.max(0, Math.min(1, from + inc * step));
-    if (step >= steps) clearInterval(iv);
-  }, duration / steps);
+try {
+const c = getACtx();
+[[392,.3],[392,.15],[440,.45],[392,.45],[523,.45],[494,.9],[392,.3],[392,.15],[440,.45],[392,.45],[587,.45],[523,.9]]
+.reduce((t,[f,d]) => { const o=c.createOscillator(),g=c.createGain(); o.connect(g); g.connect(c.destination); o.type='sine'; o.frequency.value=f; g.gain.setValueAtTime(0,t); g.gain.linearRampToValueAtTime(.1,t+.05); g.gain.exponentialRampToValueAtTime(.001,t+d-.05); o.start(t); o.stop(t+d); return t+d; }, c.currentTime+.5);
+} catch(_) {}
 }
 
 // ─── DOĞUM GÜNÜ SAYACI ───────────────────────────────────────────
 function checkBirthday() {
-  const now = new Date(), el = document.getElementById('birthdayCheck');
-
-  // TEST: Bugün 12:00 — TEST BİTİNCE BU SATIRI SİL, ALTTAKINI AÇ
-  const testTarget = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 12, 0, 0, 0);
-  const isBirthdayTime = now >= testTarget && now.getHours() >= 12;
-  // GERÇEK KOD (test bitince bu yorum satırını kaldır):
-  // const m = now.getMonth(), d = now.getDate();
-  // const isBirthdayTime = (m === 2 && d === 31) || (m === 3 && d <= 5);
-
-  if (isBirthdayTime) {
-    showBirthdayMessage(el);
-    return;
-  }
-
-  // TEST hedefi: bugün 12:00
-  let target = testTarget;
-  // GERÇEK KOD:
-  // let target = new Date(now.getFullYear(), 2, 31);
-  // if (now > target) target = new Date(now.getFullYear()+1, 2, 31);
-
-  let countdownStarted = false;
-
-  function upd() {
-    const diff = target - new Date();
-    if (diff <= 0) {
-      if (!countdownStarted) {
-        countdownStarted = true;
-        // Müziği hemen başlat
-        startBirthdaySpecialMusic();
-        attachMediaVolumeListeners();
-        // Konfeti
-        launchConfetti(); launchConfetti(); launchConfetti();
-        // Sayacı 10 saniyede fade out et, sonra mesajı göster
-        el.style.transition = 'opacity 10s ease';
-        el.style.opacity = '0';
-        setTimeout(() => {
-          showBirthdayMessage(el);
-          fadeBirthdayMusicUp();
-        }, 10000);
-      }
-      return;
-    }
-    const dy=Math.floor(diff/86400000), h=Math.floor(diff%86400000/3600000), mn=Math.floor(diff%3600000/60000), s=Math.floor(diff%60000/1000);
-    el.innerHTML = `<p class="countdown-label">Doğum gününe kalan</p>
-    <div class="countdown">
-      <div class="countdown-item"><span class="countdown-num">${pad(dy)}</span><span class="countdown-unit">Gün</span></div>
-      <span class="countdown-sep">:</span>
-      <div class="countdown-item"><span class="countdown-num">${pad(h)}</span><span class="countdown-unit">Saat</span></div>
-      <span class="countdown-sep">:</span>
-      <div class="countdown-item"><span class="countdown-num">${pad(mn)}</span><span class="countdown-unit">Dakika</span></div>
-      <span class="countdown-sep">:</span>
-      <div class="countdown-item"><span class="countdown-num">${pad(s)}</span><span class="countdown-unit">Saniye</span></div>
-    </div>`;
-  }
-  upd(); setInterval(upd, 1000);
+const now = new Date(), el = document.getElementById('birthdayCheck');
+const m = now.getMonth(), d = now.getDate();
+if ((m === 2 && d === 31) || (m === 3 && d <= 5)) {
+el.innerHTML = `<div style="display:flex;flex-direction:column;align-items:center;gap:12px;">
+     <div class="birthday-badge">🎂 Doğum Günün Kutlu Olsun! 🎂</div>
+     <p style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--text-light);font-size:clamp(.9rem,2vw,1.1rem);">Mutlu yıllar güzel insan ✨</p>
+   </div>`;
+return;
 }
-
-function showBirthdayMessage(el) {
-  el.style.transition = 'opacity 2s ease';
-  el.style.opacity = '0';
-  setTimeout(() => {
-    el.innerHTML = `<div style="display:flex;flex-direction:column;align-items:center;gap:16px;text-align:center;">
-      <div class="birthday-badge" style="font-size:clamp(1.8rem,5vw,2.8rem);">🎂✨🎂</div>
-      <p style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--text-dark);font-size:clamp(1.2rem,3vw,2rem);line-height:1.4;max-width:500px;">Doğum günün kutlu olsun.<br>İyi ki varsın Yarenim</p>
-      <div class="birthday-badge" style="font-size:clamp(1.4rem,3vw,2rem);">🌸🎀🌸</div>
-    </div>`;
-    el.style.opacity = '1';
-  }, 300);
+let target = new Date(now.getFullYear(), 2, 31);
+if (now > target) target = new Date(now.getFullYear()+1, 2, 31);
+function upd() {
+const diff = target - new Date();
+if (diff <= 0) { checkBirthday(); return; }
+const dy=Math.floor(diff/86400000), h=Math.floor(diff%86400000/3600000), mn=Math.floor(diff%3600000/60000), s=Math.floor(diff%60000/1000);
+el.innerHTML = `<p class="countdown-label">Doğum gününe kalan</p>
+   <div class="countdown">
+     <div class="countdown-item"><span class="countdown-num">${pad(dy)}</span><span class="countdown-unit">Gün</span></div>
+     <span class="countdown-sep">:</span>
+     <div class="countdown-item"><span class="countdown-num">${pad(h)}</span><span class="countdown-unit">Saat</span></div>
+     <span class="countdown-sep">:</span>
+     <div class="countdown-item"><span class="countdown-num">${pad(mn)}</span><span class="countdown-unit">Dakika</span></div>
+     <span class="countdown-sep">:</span>
+     <div class="countdown-item"><span class="countdown-num">${pad(s)}</span><span class="countdown-unit">Saniye</span></div>
+   </div>`;
 }
-
+upd(); setInterval(upd, 1000);
+}
 function pad(n) { return String(n).padStart(2,'0'); }
 
 // ─── KONFETİ ─────────────────────────────────────────────────────
 function launchConfetti() {
-  const cont = document.getElementById('confetti');
-  const cols = ['#6B1E2E','#8B3045','#C4956A','#F5EDE3','#D4AF88','#fff'];
-  for (let i = 0; i < 50; i++) {
-    const p = document.createElement('div'); p.className = 'confetti-piece';
-    p.style.cssText = `left:${Math.random()*100}%;top:-12px;background:${cols[Math.floor(Math.random()*cols.length)]};width:${4+Math.random()*7}px;height:${8+Math.random()*10}px;border-radius:${Math.random()>.5?'50%':'2px'};animation-duration:${2+Math.random()*3}s;animation-delay:${Math.random()*.8}s;`;
-    cont.appendChild(p); setTimeout(() => p.remove(), 5000);
-  }
+const cont = document.getElementById('confetti');
+const cols = ['#6B1E2E','#8B3045','#C4956A','#F5EDE3','#D4AF88','#fff'];
+for (let i = 0; i < 50; i++) {
+const p = document.createElement('div'); p.className = 'confetti-piece';
+p.style.cssText = `left:${Math.random()*100}%;top:-12px;background:${cols[Math.floor(Math.random()*cols.length)]};width:${4+Math.random()*7}px;height:${8+Math.random()*10}px;border-radius:${Math.random()>.5?'50%':'2px'};animation-duration:${2+Math.random()*3}s;animation-delay:${Math.random()*.8}s;`;
+cont.appendChild(p); setTimeout(() => p.remove(), 5000);
+}
 }
 
 // ─── UI HELPERS ──────────────────────────────────────────────────
@@ -1320,17 +1208,17 @@ window.toggleLetter = function(el) { el.classList.toggle('open'); };
 window.toggleMsg = function(el) { el.classList.toggle('open'); };
 
 window.openLightbox = function(src, cap, canDl, dlUrl, dlName) {
-  document.getElementById('lbImg').src = src;
-  document.getElementById('lbCap').textContent = cap || '';
-  window._lbUrl = dlUrl || src; window._lbName = dlName || 'foto';
-  canDl ? document.getElementById('lbDl').classList.add('visible') : document.getElementById('lbDl').classList.remove('visible');
-  document.getElementById('lightbox').classList.add('open');
-  document.body.style.overflow = 'hidden';
+document.getElementById('lbImg').src = src;
+document.getElementById('lbCap').textContent = cap || '';
+window._lbUrl = dlUrl || src; window._lbName = dlName || 'foto';
+canDl ? document.getElementById('lbDl').classList.add('visible') : document.getElementById('lbDl').classList.remove('visible');
+document.getElementById('lightbox').classList.add('open');
+document.body.style.overflow = 'hidden';
 };
 window.closeLightbox = function(e) {
-  if (e && e.target !== e.currentTarget && !e.target.classList.contains('lightbox-close')) return;
-  document.getElementById('lightbox').classList.remove('open');
-  if (window.SITE.entered) document.body.style.overflow = '';
+if (e && e.target !== e.currentTarget && !e.target.classList.contains('lightbox-close')) return;
+document.getElementById('lightbox').classList.remove('open');
+if (window.SITE.entered) document.body.style.overflow = '';
 };
 document.addEventListener('keydown', e => { if (e.key === 'Escape') { document.getElementById('lightbox').classList.remove('open'); if (window.SITE.entered) document.body.style.overflow = ''; } });
 
@@ -1338,11 +1226,11 @@ window.dlFile = function(url, name) { const a=document.createElement('a'); a.hre
 window.dlText = function(title, content) { const blob=new Blob([content],{type:'text/plain;charset=utf-8'}); const url=URL.createObjectURL(blob); const a=document.createElement('a'); a.href=url; a.download=(title||'icerik')+'.txt'; document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(url); };
 
 window.scrollToSection = function(id) {
-  const el = document.getElementById(id);
-  if (!el) return;
-  const navH = document.getElementById('navbar').offsetHeight || 64;
-  const top = el.getBoundingClientRect().top + window.scrollY - navH - 20;
-  window.scrollTo({ top, behavior: 'smooth' });
+const el = document.getElementById(id);
+if (!el) return;
+const navH = document.getElementById('navbar').offsetHeight || 64;
+const top = el.getBoundingClientRect().top + window.scrollY - navH - 20;
+window.scrollTo({ top, behavior: 'smooth' });
 };
 
 window.toggleMobileMenu = function() { document.getElementById('hamburger').classList.toggle('open'); document.getElementById('mobileMenu').classList.toggle('open'); };
@@ -1350,12 +1238,12 @@ window.closeMobileMenu = function() { document.getElementById('hamburger').class
 document.addEventListener('click', e => { const h=document.getElementById('hamburger'),m=document.getElementById('mobileMenu'); if(m.classList.contains('open')&&!m.contains(e.target)&&!h.contains(e.target)) closeMobileMenu(); });
 
 const obs = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
 }, { threshold:.08, rootMargin:'0px 0px -40px 0px' });
 setTimeout(() => document.querySelectorAll('.fade-in-up').forEach(el => obs.observe(el)), 100);
 
 window.addEventListener('scroll', () => {
-  document.getElementById('navbar').style.boxShadow = window.scrollY > 20 ? '0 4px 24px rgba(107,30,46,.12)' : 'none';
+document.getElementById('navbar').style.boxShadow = window.scrollY > 20 ? '0 4px 24px rgba(107,30,46,.12)' : 'none';
 }, { passive:true });
 
 function emptyHTML(icon, text) { return `<div class="empty-state"><div class="empty-icon">${icon}</div><p class="empty-text">${text}</p></div>`; }
