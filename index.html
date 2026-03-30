@@ -1191,9 +1191,13 @@ function upd() {
 const diff = target - new Date();
 if (diff <= 0) {
   launchConfetti(); launchConfetti(); launchConfetti();
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+  document.getElementById('hero').scrollIntoView({ behavior: 'smooth' });
   checkBirthday();
   return;
 }
+    
 const dy=Math.floor(diff/86400000), h=Math.floor(diff%86400000/3600000), mn=Math.floor(diff%3600000/60000), s=Math.floor(diff%60000/1000);
 el.innerHTML = `<p class="countdown-label">Doğum gününe kalan</p>
    <div class="countdown">
